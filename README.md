@@ -1,4 +1,4 @@
-# rdls-cove
+# RDLS Conversion and Validation Tool
 
 This repository is for maintaining the RDLS Conversion and Validation Tool, which can be used by data publishers to create metadata in the [Risk data Library Standard](https://github.com/GFDRR/rdl-standard), by converting the [spreadsheet template](https://github.com/GFDRR/rdls-spreadsheet-template) to the JSON metadata format.
 
