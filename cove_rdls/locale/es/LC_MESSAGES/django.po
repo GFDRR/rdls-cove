@@ -1,0 +1,537 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Bibiana Cristòfol <bcristofol@gmail.com>, 2018
+# Ben Webb <ben.webb@opendataservices.coop>, 2019
+# Eduardo Gomez <eduardo.gomez@hotmail.co.uk>, 2019
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-19 13:38+0000\n"
+"PO-Revision-Date: 2018-11-30 13:12+0000\n"
+"Last-Translator: Eduardo Gomez <eduardo.gomez@hotmail.co.uk>, 2019\n"
+"Language-Team: Spanish (https://www.transifex.com/OpenDataServices/teams/59127/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:6
+msgid "Check"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:7
+msgid "Information"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:8
+msgid "Where problem occurs"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:16
+msgid "The statement has an identifier scheme which is not valid."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:19
+msgid "Invalid Scheme"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:28
+msgid ""
+"This statement references an entity but that entity is defined after this "
+"statement."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:31
+#: cove_bods/templates/cove_bods/additional_checks_table.html:43
+msgid "Entity that is out of order"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:40
+msgid ""
+"This statement references a person but that person is defined after this "
+"statement."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:52
+msgid ""
+"This Entity Statement is not used in any ownership or control statements."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:63
+msgid ""
+"This Person Statement is not used in any ownership or control statements."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:74
+msgid ""
+"This Entity Statement is referenced from an ownership or control statement, "
+"but it is missing."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:77
+msgid "Entity that is missing"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:86
+msgid ""
+"This Person Statement is referenced from an ownership or control statement, "
+"but it is missing."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:89
+msgid "Person that is missing"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:98
+msgid "This statement ID has been used more than once."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:101
+msgid "Statement ID"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:110
+msgid "This Person Statement has a birthday that is to early."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:113
+#: cove_bods/templates/cove_bods/additional_checks_table.html:125
+msgid "Year"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:122
+msgid "This Person Statement has a birthday that is to late."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:134
+msgid ""
+"This Entity Statement has an address type that is not allowed in entity "
+"statements."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:137
+#: cove_bods/templates/cove_bods/additional_checks_table.html:149
+msgid "Type"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:146
+msgid ""
+"This Person Statement has an address type that is not allowed in person "
+"statements."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:158
+msgid "This Entity Statement has an alternate address but no other addresses."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:170
+msgid "This Person Statement has an alternate address but no other addresses."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:182
+msgid ""
+"This Ownership-or-control Statement has a component statement that is not in"
+" this package."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:185
+msgid "Component Statement ID"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:194
+msgid ""
+"An Ownership-or-control Statement cannot both be a component statement "
+"(isComponent) and have component statements (componentStatementIDs)."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:205
+msgid ""
+"This Person Statement is a component (isComponent) but no primary Ownership-"
+"or-control Statement references it (from componentStatementIDs)"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:216
+msgid ""
+"This Entity Statement is a component (isComponent) but no primary Ownership-"
+"or-control Statement references it (from componentStatementIDs)"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:227
+msgid ""
+"This Ownership-or-control Statement is a component (isComponent) but no "
+"primary Ownership-or-control Statement references it (from "
+"componentStatementIDs)"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:238
+msgid ""
+"This Person Statement is a component (isComponent) and should appear "
+"<strong>before</strong> the primary Ownership-or-control Statement that "
+"references it (from componentStatementIDs)."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:249
+msgid ""
+"This Entity Statement is a component (isComponent) and should appear "
+"<strong>before</strong> the primary Ownership-or-control Statement that "
+"references it (from componentStatementIDs)."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/additional_checks_table.html:260
+msgid ""
+"This Ownership-or-control Statement is a component (isComponent) and should "
+"appear <strong>before</strong> the primary Ownership-or-control Statement "
+"that references it (from componentStatementIDs)."
+msgstr ""
+
+#. Translators: Label of a button that triggers search
+#: cove_bods/templates/cove_bods/base.html:44
+msgid "Go"
+msgstr "Ir"
+
+#: cove_bods/templates/cove_bods/base.html:51
+msgid " Data Review Tool"
+msgstr "Herramienta de revisión de datos"
+
+#: cove_bods/templates/cove_bods/base.html:54
+msgid " BODS Documentation "
+msgstr ""
+
+#: cove_bods/templates/cove_bods/base.html:77
+msgid "Open Ownership"
+msgstr "OpenOwnership"
+
+#: cove_bods/templates/cove_bods/base.html:78
+msgid "Beneficial Ownership Data Standard"
+msgstr "Beneficial Ownership Data Standard"
+
+#: cove_bods/templates/cove_bods/base.html:87
+msgid "About BODS "
+msgstr "Acerca de BODS"
+
+#: cove_bods/templates/cove_bods/base.html:88
+msgid ""
+"Increasingly governments across the globe require companies to disclose "
+"information about who ultimately owns and controls them (their beneficial "
+"owners). These efforts to increase corporate transparency  and counter "
+"corruption require information to be shared across institutions, sectors  "
+"and borders."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/base.html:89
+msgid ""
+"The Beneficial Ownership Data Standard (BODS) enables people and "
+"institutions to publish information about beneficial ownership in a "
+"standardised way. The resulting beneficial ownership data is interoperable, "
+"more easily reused, and higher quality. Learn more at the <a "
+"href=\"http://standard.openownership.org\">BODS documentation website</a>."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/base.html:97
+msgid "Checking and reviewing your data"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/base.html:98
+msgid ""
+"After submitting your data you will be presented with the results of your "
+"data review:"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/base.html:100
+msgid ""
+"<b>Download data</b>. A chance to save your data in an alternative format."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/base.html:101
+msgid "<b>Validation errors</b>. A list of standard JSON validation errors."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/base.html:102
+msgid ""
+"<b>Additional fields</b>. If your data contains unrecognised fields, they "
+"will be listed."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/base.html:103
+msgid ""
+"<b>Additional checks</b>. A list of BODS-specific problems in the data."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/base.html:104
+msgid ""
+"<b>Statistics</b>. A breakdown of the make-up of your data and indicators of"
+" its quality."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/base.html:106
+msgid ""
+"Amend your data to address errors and problems, or to improve its quality."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/base.html:119
+msgid "Using the data review tool"
+msgstr "Uso de la herramienta de revisión de datos"
+
+#: cove_bods/templates/cove_bods/base.html:120
+msgid ""
+"Use one of the links below to check that your data complies with the <a "
+"href=\"#introduction\">Beneficial Ownership Data Standard</a> (BODS)."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/base.html:122
+msgid "<b>Upload</b> a BODS file;"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/base.html:123
+msgid "<b>Link</b> to BODS data on the web using a URL; or"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/base.html:124
+msgid "<b>Paste</b> in your BODS JSON data"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/base.html:127
+msgid ""
+"After submitting your data, use the information provided on the Results page"
+" to <a href=\"#introduction\">check and review</a> the data’s quality and "
+"compliance with BODS. Your data can also be downloaded in alternative BODS-"
+"compliant formats from the Results page."
+msgstr ""
+
+#: cove_bods/templates/cove_bods/base.html:129
+msgid "Accepted BODS formats:"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/base.html:131
+msgid ""
+"JSON built to the <a href=\"#introduction\">Beneficial Ownership Data "
+"Standard</a> (UTF-8 encoding supported)"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/base.html:132
+msgid ""
+"Multi-table data package - Excel (.xlsx) (UTF-8, Windows-1252 and ISO-8859-1"
+" encodings supported)"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/base.html:144
+msgid "Built by"
+msgstr "Construido por "
+
+#: cove_bods/templates/cove_bods/base.html:144
+msgid "Open Data Services"
+msgstr "Open Data Services"
+
+#: cove_bods/templates/cove_bods/base.html:145
+msgid "The code for this site is available on"
+msgstr "El código de este sitio está disponible en "
+
+#: cove_bods/templates/cove_bods/base.html:145
+msgid "GitHub"
+msgstr "GitHub"
+
+#: cove_bods/templates/cove_bods/base.html:145
+msgid "Licence"
+msgstr "Licencia"
+
+#: cove_bods/templates/cove_bods/base.html:145
+msgid "AGPLv3"
+msgstr "AGPLv3"
+
+#: cove_bods/templates/cove_bods/base.html:145
+msgid "Report/View issues"
+msgstr "Reportar / Ver issues"
+
+#: cove_bods/templates/cove_bods/base.html:145
+msgid "cove-bods issues"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/base.html:150
+msgid "Running version "
+msgstr "Versión en ejecución"
+
+#: cove_bods/templates/cove_bods/explore.html:5
+msgid "Load New File"
+msgstr "Cargar archivo nuevo"
+
+#: cove_bods/templates/cove_bods/explore.html:18
+msgid "Schema Version"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/explore.html:22
+msgid "Schema Version Used"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/explore.html:34
+msgid "Download Data"
+msgstr "Descargar datos"
+
+#: cove_bods/templates/cove_bods/explore.html:52
+msgid "The JSON could not be converted to Spreadsheet due to the error:"
+msgstr "El JSON no se pudo convertir a hoja de cálculo debido al error:"
+
+#: cove_bods/templates/cove_bods/explore.html:84
+msgid "Convert to Spreadsheet"
+msgstr "Convertir a hoja de cálculo"
+
+#: cove_bods/templates/cove_bods/explore.html:114
+#: cove_bods/templates/cove_bods/explore.html:125
+msgid "Validation Errors"
+msgstr "Errores de validación"
+
+#: cove_bods/templates/cove_bods/explore.html:129
+msgid "There were no validation errors!"
+msgstr "No hubo errores de validación!"
+
+#: cove_bods/templates/cove_bods/explore.html:146
+#: cove_bods/templates/cove_bods/explore.html:157
+msgid "Additional Fields"
+msgstr "Campos adicionales"
+
+#: cove_bods/templates/cove_bods/explore.html:161
+msgid "There were no additional fields!"
+msgstr "¡No había campos adicionales!"
+
+#: cove_bods/templates/cove_bods/explore.html:176
+#: cove_bods/templates/cove_bods/explore.html:187
+msgid "Additional Checks"
+msgstr "Comprobaciones adicionales"
+
+#: cove_bods/templates/cove_bods/explore.html:191
+msgid "All checks passed!"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/explore.html:203
+msgid "Statistics"
+msgstr "Estadísticas "
+
+#: cove_bods/templates/cove_bods/explore.html:208
+msgid "Entity Statements"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/explore.html:210
+#: cove_bods/templates/cove_bods/explore.html:236
+#: cove_bods/templates/cove_bods/explore.html:266
+msgid "Total Statements"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/explore.html:215
+#: cove_bods/templates/cove_bods/explore.html:241
+#: cove_bods/templates/cove_bods/explore.html:295
+#, python-format
+msgid " ... with type %(key)s"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/explore.html:224
+#, python-format
+msgid "%% of registered or legal entities with any identifier"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/explore.html:229
+#, python-format
+msgid ""
+"%% of registered or legal entities with an identifier that have a 'strict' "
+"identifier"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/explore.html:234
+msgid "Person Statements"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/explore.html:250
+msgid "... where PEP status is declared"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/explore.html:258
+msgid ""
+"... where PEP status is declared AND (erroneously) a reason for missing PEP "
+"information is given"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/explore.html:264
+msgid "Ownership or Control Statements"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/explore.html:270
+msgid " ... where interested party is a person"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/explore.html:277
+msgid " ... where interested party is a entity"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/explore.html:284
+msgid " ... where interested party is unspecified"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/explore.html:290
+msgid "Total Interest Statements"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/explore.html:303
+msgid "Misc"
+msgstr ""
+
+#: cove_bods/templates/cove_bods/explore.html:306
+msgid ""
+"Count of previous statements that are referenced from replacesStatement and "
+"are missing"
+msgstr ""
+
+#: cove_bods/views.py:59 cove_bods/views.py:70
+#: src/libcove/libcove/lib/converters.py:182
+#: src/libcove/libcove/lib/exceptions.py:21
+#: src/libcove/libcove/lib/exceptions.py:38
+msgid "Sorry, we can't process that data"
+msgstr "Lo sentimos, no podemos procesar esos datos"
+
+#: cove_bods/views.py:61 cove_bods/views.py:72
+#: src/libcove/libcove/lib/converters.py:184
+#: src/libcove/libcove/lib/exceptions.py:23
+#: src/libcove/libcove/lib/exceptions.py:40
+msgid "Try Again"
+msgstr "Inténtelo de nuevo"
+
+#: cove_bods/views.py:73
+msgid ""
+"BODS JSON should have a list as the top level, the JSON you supplied does "
+"not."
+msgstr ""
+
+#: src/libcove/libcove/lib/converters.py:185
+msgid ""
+"We think you tried to upload a JSON file, but it is not well formed JSON.\n"
+"\n"
+"Error message: {}"
+msgstr ""
+"Creemos que ha intentado subir un archivo JSON, pero el archivo no es JSON bien formado.\n"
+"\n"
+"Mensaje del error: {}"
+
+#: src/libcove/libcove/lib/exceptions.py:24
+msgid ""
+"We did not recognise the file type.\n"
+"\n"
+"We can only process json, csv and xlsx files."
+msgstr ""
+"No hemos podido reconocer ese tipo de archivo.\n"
+"\n"
+"Sólo podemos procesar archivos json, csv y xlsx."
+
+#: src/libcove/libcove/lib/exceptions.py:41
+msgid ""
+"We think you tried to supply a spreadsheet, but we failed to convert it.\n"
+"\n"
+"Error message: {}"
+msgstr ""
+"Creemos que ha tratado de suministrar una hoja de cálculo, pero no hemos podido convertirla.\n"
+"\n"
+"Mensaje del error: {}"

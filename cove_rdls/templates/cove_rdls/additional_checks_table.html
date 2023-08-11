@@ -1,0 +1,495 @@
+{% load i18n %}
+
+<table class="table">
+    <thead>
+    <tr>
+        <th class="">{% trans 'Check' %}</th>
+        <th class="">{% trans 'Information' %}</th>
+        <th class="">{% trans 'Where problem occurs' %}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for additional_check in additional_checks %}
+        {% if additional_check.type == 'entity_identifier_scheme_not_known' %}
+            <tr>
+                <td>
+                    {% trans 'The statement has an identifier scheme which is not valid.'  %}
+                </td>
+                <td>
+                    {% trans 'Invalid Scheme' %}: {{ additional_check.scheme }}
+                </td>
+                <td>
+                    {{ additional_check.entity_statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'entity_statement_out_of_order' %}
+            <tr>
+                <td>
+                    {% trans 'This statement references an entity but that entity is defined after this statement.' %}
+                </td>
+                <td>
+                    {% trans 'Entity that is out of order' %}: {{ additional_check.entity_statement_out_of_order }}
+                </td>
+                <td>
+                    {{ additional_check.seen_in_ownership_or_control_statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'person_statement_out_of_order' %}
+            <tr>
+                <td>
+                    {% trans 'This statement references a person but that person is defined after this statement.' %}
+                </td>
+                <td>
+                    {% trans 'Entity that is out of order' %}: {{ additional_check.person_statement_out_of_order }}
+                </td>
+                <td>
+                    {{ additional_check.seen_in_ownership_or_control_statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'entity_statement_not_used_in_ownership_or_control_statement' %}
+            <tr>
+                <td>
+                    {% trans 'This Entity Statement is not used in any ownership or control statements.' %}
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ additional_check.entity_statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'person_statement_not_used_in_ownership_or_control_statement' %}
+            <tr>
+                <td>
+                    {% trans 'This Person Statement is not used in any ownership or control statements.' %}
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ additional_check.person_statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'entity_statement_missing' %}
+            <tr>
+                <td>
+                    {% trans 'This Entity Statement is referenced from an ownership or control statement, but it is missing.' %}
+                </td>
+                <td>
+                    {% trans 'Entity that is missing' %}: {{ additional_check.entity_statement_missing }}
+                </td>
+                <td>
+                    {{ additional_check.seen_in_ownership_or_control_statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'person_statement_missing' %}
+            <tr>
+                <td>
+                    {% trans 'This Person Statement is referenced from an ownership or control statement, but it is missing.' %}
+                </td>
+                <td>
+                    {% trans 'Person that is missing' %}: {{ additional_check.person_statement_missing }}
+                </td>
+                <td>
+                    {{ additional_check.seen_in_ownership_or_control_statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'duplicate_statement_id' %}
+            <tr>
+                <td>
+                    {% trans 'This statement ID has been used more than once.' %}
+                </td>
+                <td>
+                    {% trans 'Statement ID' %}: {{ additional_check.id }}
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+        {% elif additional_check.type == 'person_birth_year_too_early' %}
+            <tr>
+                <td>
+                    {% trans 'This Person Statement has a birthday that is to early.' %}
+                </td>
+                <td>
+                    {% trans 'Year' %}: {{ additional_check.year }}
+                </td>
+                <td>
+                    {{ additional_check.person_statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'person_birth_year_too_late' %}
+            <tr>
+                <td>
+                    {% trans 'This Person Statement has a birthday that is to late.' %}
+                </td>
+                <td>
+                    {% trans 'Year' %}: {{ additional_check.year }}
+                </td>
+                <td>
+                    {{ additional_check.person_statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'wrong_address_type_used' and additional_check.statement_type == 'entity' %}
+            <tr>
+                <td>
+                    {% trans 'This Entity Statement has an address type that is not allowed in entity statements.' %}
+                </td>
+                <td>
+                    {% trans 'Type' %}: {{ additional_check.address_type }}
+                </td>
+                <td>
+                    {{ additional_check.statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'wrong_address_type_used' and additional_check.statement_type == 'person' %}
+            <tr>
+                <td>
+                    {% trans 'This Person Statement has an address type that is not allowed in person statements.' %}
+                </td>
+                <td>
+                    {% trans 'Type' %}: {{ additional_check.address_type }}
+                </td>
+                <td>
+                    {{ additional_check.statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'alternative_address_with_no_other_address_types' and additional_check.statement_type == 'entity' %}
+            <tr>
+                <td>
+                    {% trans 'This Entity Statement has an alternate address but no other addresses.' %}
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    {{ additional_check.statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'alternative_address_with_no_other_address_types' and additional_check.statement_type == 'person' %}
+            <tr>
+                <td>
+                    {% trans 'This Person Statement has an alternate address but no other addresses.' %}
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    {{ additional_check.statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'component_statement_id_not_in_package' %}
+            <tr>
+                <td>
+                    {% trans 'This Ownership-or-control Statement has a component statement that is not in this package.' %}
+                </td>
+                <td>
+                    {% trans 'Component Statement ID' %}: {{ additional_check.component_statement_id }}
+                </td>
+                <td>
+                    {{ additional_check.seen_in_ownership_or_control_statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'ownership_or_control_statement_has_is_compontent_and_component_statement_ids' %}
+            <tr>
+                <td>
+                    {% trans 'An Ownership-or-control Statement cannot both be a component statement (isComponent) and have component statements (componentStatementIDs).' %}
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ additional_check.statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'statement_is_component_but_not_used_in_component_statement_ids' and additional_check.statement_type == 'person'  %}
+            <tr>
+                <td>
+                    {% trans 'This Person Statement is a component (isComponent) but no primary Ownership-or-control Statement references it (from componentStatementIDs)' %}
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ additional_check.statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'statement_is_component_but_not_used_in_component_statement_ids' and additional_check.statement_type == 'entity'  %}
+            <tr>
+                <td>
+                    {% trans 'This Entity Statement is a component (isComponent) but no primary Ownership-or-control Statement references it (from componentStatementIDs)' %}
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ additional_check.statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'statement_is_component_but_not_used_in_component_statement_ids' and additional_check.statement_type == 'ownership_or_control'  %}
+            <tr>
+                <td>
+                    {% trans 'This Ownership-or-control Statement is a component (isComponent) but no primary Ownership-or-control Statement references it (from componentStatementIDs)' %}
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ additional_check.statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'statement_is_component_but_is_after_use_in_component_statement_id' and additional_check.statement_type == 'person'  %}
+            <tr>
+                <td>
+                    {% blocktrans %}This Person Statement is a component (isComponent) and should appear <strong>before</strong> the primary Ownership-or-control Statement that references it (from componentStatementIDs).{%endblocktrans%}
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ additional_check.statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'statement_is_component_but_is_after_use_in_component_statement_id' and additional_check.statement_type == 'entity'  %}
+            <tr>
+                <td>
+                    {% blocktrans %}This Entity Statement is a component (isComponent) and should appear <strong>before</strong> the primary Ownership-or-control Statement that references it (from componentStatementIDs).{%endblocktrans%}
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ additional_check.statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'statement_is_component_but_is_after_use_in_component_statement_id' and additional_check.statement_type == 'ownership_or_control'  %}
+            <tr>
+                <td>
+                    {% blocktrans %}This Ownership-or-control Statement is a component (isComponent) and should appear <strong>before</strong> the primary Ownership-or-control Statement that references it (from componentStatementIDs).{%endblocktrans%}
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ additional_check.statement }}
+                </td>
+            </tr>
+     {% elif additional_check.type == 'inconsistent_schema_version_used' and additional_check.statement_type == 'person' %}
+            <tr>
+                <td>
+                    {% blocktrans %}This Person Statement and the first statement of the submitted data reference different BODS versions.{%endblocktrans%}
+                </td>
+                <td>
+                    {% trans 'Schema Version Used' %}: {{ additional_check.schema_version }}
+                </td>
+                <td>
+                    {{ additional_check.statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'inconsistent_schema_version_used' and additional_check.statement_type == 'entity' %}
+            <tr>
+                <td>
+                    {% blocktrans %}This Entity Statement and the first statement of the submitted data reference different BODS versions.{%endblocktrans%}
+                </td>
+                <td>
+                    {% trans 'Schema Version Used' %}: {{ additional_check.schema_version }}
+                </td>
+                <td>
+                    {{ additional_check.statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'inconsistent_schema_version_used' and additional_check.statement_type == 'ownership_or_control' %}
+            <tr>
+                <td>
+                    {% blocktrans %}This Ownership-or-control Statement and the first statement of the submitted data reference different BODS versions.{%endblocktrans%}
+                </td>
+                <td>
+                    {% trans 'Schema Version Used' %}: {{ additional_check.schema_version }}
+                </td>
+                <td>
+                    {{ additional_check.statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'unknown_schema_version_used' %}
+            <tr>
+                <td>
+                    {% blocktrans %}This data attempted to use a schema version that was not recognised.{%endblocktrans%}
+                </td>
+                <td>
+                    {{ additional_check.schema_version }}
+                </td>
+                <td>
+                </td>
+            </tr>
+        {% elif additional_check.type == 'statement_is_beneficialOwnershipOrControl_but_no_person_specified' %}
+            <tr>
+                <td>
+                    {% blocktrans %}This Ownership-or-control Statement contains interests where beneficialOwnershipOrControl is true. Therefore interestedParty must reference a Person Statement.{%endblocktrans%}
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ additional_check.statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'statement_entity_type_and_entity_sub_type_do_not_align' %}
+            <tr>
+                <td>
+                    {% blocktrans %}The specified entitySubtype is not valid for the specified entityType.{%endblocktrans%}
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ additional_check.statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'has_public_listing_information_but_has_public_listing_is_false' %}
+            <tr>
+                <td>
+                    {% blocktrans %}This Entity Statement hasPublicListing that does not exist or is false. Information has been provided under companyFilingsURLs or securitiesListings so hasPublicListing must be true.{%endblocktrans%}
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ additional_check.statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'entity_security_listing_market_identifier_code_set_but_not_operating_market_identifier_code' %}
+            <tr>
+                <td>
+                    {% blocktrans %}This Entity Statement has a security listing where marketIdentifierCode is set but operatingMarketIdentifierCode is not set.{%endblocktrans%}
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ additional_check.statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'entity_security_listing_operating_market_identifier_code_set_but_not_market_identifier_code' %}
+            <tr>
+                <td>
+                    {% blocktrans %}This Entity Statement has a security listing where operatingMarketIdentifierCode is set but marketIdentifierCode is not set.{%endblocktrans%}
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ additional_check.statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'has_pep_details_without_missing_info_but_incorrect_pep_status' %}
+            {# Currently this applies to 0.2 only #}
+            <tr>
+                <td>
+                    {% blocktrans %}This Person Statement has some PEP details without missing info but their PEP status has not been declared as True.{%endblocktrans%}
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ additional_check.statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'has_pep_details_but_incorrect_pep_status' %}
+            {# Currently this applies to 0.3+ only #}
+            <tr>
+                <td>
+                    {% blocktrans %}This Person Statement has some PEP details but their PEP status is missing or has been declared as 'isNotPep'.{%endblocktrans%}
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ additional_check.statement }}
+                </td>
+            </tr>
+        {% elif additional_check.type == 'has_pep_details_with_missing_info_but_incorrect_pep_status' %}
+            {# Currently this applies to 0.2 and 0.3+ #}
+            <tr>
+                <td>
+                    {% if schema_version_used == '0.2' %}
+                        {% blocktrans %}This Person Statement has some PEP details with missing info but their status has been declared as True.{%endblocktrans%}
+                    {% else %}
+                        {% blocktrans %}This Person Statement has a missingInfoReason for PEP status details, so PEP status should be declared as 'unknown'.{%endblocktrans%}
+                    {% endif %}
+                </td>
+                <td>
+                </td>
+                <td>
+                    {{ additional_check.statement }}
+                </td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+    {% if not statistics.count_ownership_or_control_statement_with_at_least_one_interest_beneficial %}
+        <tr>
+            <td>
+                {% blocktrans %}No individuals are disclosed as beneficial owners. beneficialOwnershipOrControl must be set to true within an Interest object to indicate that the interested party is a beneficial owner.{%endblocktrans%}
+            </td>
+            <td>
+            </td>
+            <td>
+                {% blocktrans %}All Ownership-or-control statements{%endblocktrans%}
+            </td>
+        </tr>
+    {% endif %}
+    {% for check_not_run_in_sample_mode in checks_not_run_in_sample_mode %}
+        {% if  check_not_run_in_sample_mode == "entity_statement_missing" %}
+            <tr>
+                <td>{% trans 'This Entity Statement is referenced from an ownership or control statement, but it is missing.' %}</td>
+                <td>This check is not carried out in Sample mode.</td>
+                <td></td>
+            </tr>
+        {% elif check_not_run_in_sample_mode == "person_statement_out_of_order" %}
+            <tr>
+                <td>{% trans 'This statement references a person but that person is defined after this statement.' %}</td>
+                <td>This check is not carried out in Sample mode.</td>
+                <td></td>
+            </tr>
+        {% elif check_not_run_in_sample_mode == "statement_is_component_but_is_after_use_in_component_statement_id" %}
+            <tr>
+                <td>{% trans 'This Statement is a component (isComponent) and should appear <strong>before</strong> the primary Ownership-or-control Statement that references it (from componentStatementIDs).' %}</td>
+                <td>This check is not carried out in Sample mode.</td>
+                <td></td>
+            </tr>
+        {% elif check_not_run_in_sample_mode == "statement_is_component_but_not_used_in_component_statement_ids" %}
+            <tr>
+                <td>{% trans 'This Statement is a component (isComponent) but no primary Ownership-or-control Statement references it (from componentStatementIDs)' %}</td>
+                <td>This check is not carried out in Sample mode.</td>
+                <td></td>
+            </tr>
+        {% elif check_not_run_in_sample_mode == "person_statement_missing" %}
+            <tr>
+                <td>{% trans 'This Person Statement is referenced from an ownership or control statement, but it is missing.' %}</td>
+                <td>This check is not carried out in Sample mode.</td>
+                <td></td>
+            </tr>
+        {% elif check_not_run_in_sample_mode == "person_statement_not_used_in_ownership_or_control_statement" %}
+            <tr>
+                <td>{% trans 'This Person Statement is not used in any ownership or control statements.' %}</td>
+                <td>This check is not carried out in Sample mode.</td>
+                <td></td>
+            </tr>
+        {% elif check_not_run_in_sample_mode == "entity_statement_not_used_in_ownership_or_control_statement" %}
+            <tr>
+                <td>{% trans 'This Entity Statement is not used in any ownership or control statements.' %}</td>
+                <td>This check is not carried out in Sample mode.</td>
+                <td></td>
+            </tr>
+        {% elif check_not_run_in_sample_mode == "duplicate_statement_id" %}
+            <tr>
+                <td>{% trans 'This statement ID has been used more than once.' %}</td>
+                <td>This check is not carried out in Sample mode.</td>
+                <td></td>
+            </tr>
+        {% elif check_not_run_in_sample_mode == "entity_statement_out_of_order" %}
+            <tr>
+                <td>{% trans 'This statement references an entity but that entity is defined after this statement.' %}</td>
+                <td>This check is not carried out in Sample mode.</td>
+                <td></td>
+            </tr>
+        {% elif check_not_run_in_sample_mode == "component_statement_id_not_in_package" %}
+            <tr>
+                <td>{% trans 'This Ownership-or-control Statement has a component statement that is not in this package.' %}</td>
+                <td>This check is not carried out in Sample mode.</td>
+                <td></td>
+            </tr>
+        {% else %}
+            <tr>
+                <td>{{ check_not_run_in_sample_mode }}</td>
+                <td>This check is not carried out in Sample mode.</td>
+                <td></td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+
+    </tbody>
+</table>

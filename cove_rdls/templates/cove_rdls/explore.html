@@ -1,0 +1,334 @@
+{% extends 'libcoveweb2/explore.html' %}
+{% load i18n %}
+{% load cove_tags %}
+{% block header_button %}
+  <a href="{% url 'index' %}" class="btn btn-large btn-success">{% trans 'Load New File' %}</a>
+{% endblock %}
+
+{% block explore_content %}
+
+
+    {% if sample_mode %}
+        <div class="row">
+             <div class="panel panel-danger">
+                <div id="sampleMode" class="panel-heading pointer" role="region" aria-expanded="true" aria-controls="sampleModeInfo" data-toggle="collapse" data-target="#sampleModeInfo">
+                  <h4 class="panel-title">
+                    <span class="glyphicon glyphicon-collapse-up"></span>{% trans 'Sample Mode' %}
+                  </h4>
+                </div>
+                <div id="sampleModeInfo" class="collapse in panel-body">
+                    <p>This data was analysed in Sample mode. Conformance tests that require processing of the complete dataset have not been run.</p>
+                    <p>The complete dataset may have validation errors that have not been caught in Sample mode.</p>
+                    <p>The sample of statements analysed is not random: if an unchanging dataset is run through the data review tool multiple times, the same statements will form the sample each time.</p>
+                </div>
+              </div>
+        </div>
+    {% endif %}
+
+    <div class="row">
+         <div class="panel {% if unknown_schema_version_used or inconsistent_schema_version_used_count %}panel-danger{% else %}panel-success{% endif %}">
+            <div id="validation-panel" class="panel-heading pointer" role="region" aria-expanded="true" aria-controls="validationTable" data-toggle="collapse" data-target="#validationTable">
+              <h4 class="panel-title">
+                <span class="glyphicon glyphicon-collapse-up"></span>{% trans 'Schema Version' %}
+              </h4>
+            </div>
+            <div id="validationTable" class="collapse in panel-body">
+                {% if unknown_schema_version_used or inconsistent_schema_version_used_count %}
+                    <p>
+                        {% blocktrans %} The first statement of the submitted data has a BODS version of: {% endblocktrans %}
+                        {% if unknown_schema_version_used %}
+                            {{ unknown_schema_version_used.schema_version }}
+                        {% else %}
+                            {{ schema_version_used }}
+                        {% endif %}
+                    </p>
+
+                    {% if unknown_schema_version_used %}
+                        <p>{% blocktrans %}This is not a valid RDLS version.{% endblocktrans %}</p>
+                    {% endif %}
+
+                    {% if inconsistent_schema_version_used_count %}
+                        <p>{% blocktrans %}A subsequent statement (or statements) specify a different RDLS version.{% endblocktrans %}</p>
+                    {% endif %}
+
+                    <p>{% blocktrans %}All statements in the submitted data will therefore be validated against RDLS version:{% endblocktrans %} {{  schema_version_used  }}</p>
+                {% else %}
+                    <p>{% trans 'Schema Version Used' %}: {{  schema_version_used  }}</p>
+                {% endif %}
+            </div>
+          </div>
+    </div>
+
+
+    <div class="row">
+
+            <div class="panel panel-success">
+                <div id="download-panel" class="panel-heading pointer" role="region" aria-expanded="true" aria-controls="downloadData" data-toggle="collapse" data-target="#downloadData">
+                  <h4 class="panel-title">
+                    <span class="glyphicon glyphicon-collapse-up"></span>{% trans 'Download Data' %}
+                  </h4>
+                </div>
+                <div id="downloadData" class="collapse in panel-body">
+
+                    <ul class="list-unstyled left-space">
+
+                        {% for supplied_data_file in supplied_data_files %}
+                            <li>
+                                <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+                                <a href="{{ supplied_data_file.upload_url  }}">{{ supplied_data_file.filename }} <small>({% trans 'Original' %})</small> ({{ supplied_data_file.size|filesizeformat }})</a>
+                            </li>
+                        {% endfor %}
+
+                        {% if original_format != 'spreadsheet' and can_download_xlsx %}
+                            <li>
+                                <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+                                <a href="{{ download_xlsx_url }}">Excel Spreadsheet <small>({% trans 'Converted from Original' %})</small> ({{ download_xlsx_size|filesizeformat }})</a>
+                            </li>
+                        {% endif %}
+
+                        {% if original_format != 'json' and can_download_json %}
+                            <li>
+                                <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+                                <a href="{{ download_json_url }}">JSON <small>({% trans 'Converted from Original' %})</small> ({{ download_json_size|filesizeformat }})</a>
+                            </li>
+                        {% endif %}
+
+                    </ul>
+
+                </div>
+              </div>
+    </div>
+
+    <div class="row">
+
+        {% block key_facts %}
+        {% endblock %}
+
+        {% if validation_errors %}
+              <a name="validation-errors" class="anchor"></a>
+              <div class="panel panel-danger">
+                <div id="validation-panel" class="panel-heading pointer" role="region" aria-expanded="true" aria-controls="validationTable" data-toggle="collapse" data-target="#validationTable">
+                  <h4 class="panel-title">
+                    <span class="glyphicon glyphicon-collapse-up"></span>{% trans 'Validation Errors' %}
+                  </h4>
+                </div>
+                <div id="validationTable" class="collapse in panel-body">
+                  {% include "cove_rdls/validation_table.html" %}
+                </div>
+              </div>
+        {% else %}
+             <div class="panel panel-success">
+                <div id="validation-panel" class="panel-heading pointer" role="region" aria-expanded="true" aria-controls="validationTable" data-toggle="collapse" data-target="#validationTable">
+                  <h4 class="panel-title">
+                    <span class="glyphicon glyphicon-collapse-up"></span>{% trans 'Validation Errors' %}
+                  </h4>
+                </div>
+                <div id="validationTable" class="collapse in panel-body">
+                    <p>{% trans 'There were no validation errors!' %}</p>
+                </div>
+              </div>
+        {% endif %}
+
+    </div>
+
+
+
+    <div class="row">
+
+        {% if additional_fields_count %}
+
+              <a name="additional-fields" class="anchor"></a>
+              <div class="panel panel-danger">
+                <div id="validation-panel" class="panel-heading pointer" role="region" aria-expanded="true" aria-controls="validationTable" data-toggle="collapse" data-target="#additionalFieldsTable">
+                  <h4 class="panel-title">
+                    <span class="glyphicon glyphicon-collapse-up"></span>{% trans 'Additional Fields' %}
+                  </h4>
+                </div>
+                <div id="additionalFieldsTable" class="collapse in panel-body">
+                  {% include "additional_fields_table.html" %}
+                </div>
+              </div>
+        {% else %}
+             <div class="panel panel-success">
+                <div id="validation-panel" class="panel-heading pointer" role="region" aria-expanded="true" aria-controls="validationTable" data-toggle="collapse" data-target="#additionalFieldsTable">
+                  <h4 class="panel-title">
+                    <span class="glyphicon glyphicon-collapse-up"></span>{% trans 'Additional Fields' %}
+                  </h4>
+                </div>
+                <div id="additionalFieldsTable" class="collapse in panel-body">
+                    <p>{% trans 'There were no additional fields!' %}</p>
+                </div>
+              </div>
+        {% endif %}
+
+    </div>
+
+    <div class="row">
+
+        <a name="additional-checks" class="anchor"></a>
+        <div {% if additional_checks_count or checks_not_run_in_sample_mode or not statistics.count_ownership_or_control_statement_with_at_least_one_interest_beneficial %}class="panel panel-danger" {% else %}class="panel panel-success"{% endif %}>
+            <div id="checks-panel" class="panel-heading pointer" role="region" aria-expanded="true"
+                 aria-controls="additionalChecksTable" data-toggle="collapse" data-target="#additionalChecksTable">
+                <h4 class="panel-title">
+                    <span class="glyphicon glyphicon-collapse-up"></span>{% trans 'Additional Checks' %}
+                </h4>
+            </div>
+            <div id="additionalChecksTable" class="collapse in panel-body">
+                {% if additional_checks_count or not statistics.count_ownership_or_control_statement_with_at_least_one_interest_beneficial %}
+                    {% include "cove_rdls/additional_checks_table.html" %}
+                {% else %}
+                    <p>{% trans 'All checks passed!' %}</p>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="panel panel-success">
+            <div id="statistics-panel" class="panel-heading pointer" role="region" aria-expanded="true"
+                 aria-controls="validationTable" data-toggle="collapse" data-target="#statisticsTable">
+                <h4 class="panel-title">
+                    <span class="glyphicon glyphicon-collapse-up"></span>{% trans 'Statistics' %}
+                </h4>
+            </div>
+            <div id="statisticsTable" class="collapse in panel-body">
+
+                <h4>{% trans 'Entity Statements' %}</h4>
+
+                <p>{% trans 'Total Statements' %}: {{ statistics.count_entity_statements }}</p>
+
+                {% for key, count in statistics.count_entity_statements_types.items %}
+                    {% if count > 0 %}
+                        <p>
+                            {% blocktrans %} ... with type {{ key }}{% endblocktrans %}:
+                            {{ count }}
+                            ({% widthratio count statistics.count_entity_statements 100 %}%)
+                        </p>
+                    {% endif %}
+                {% endfor %}
+
+                {% if statistics.count_entities_registeredEntity_legalEntity %}
+                    <p>
+                        {% blocktrans %}% of registered or legal entities with any identifier{% endblocktrans %}:
+                        {% widthratio statistics.count_entities_registeredEntity_legalEntity_with_any_identifier statistics.count_entities_registeredEntity_legalEntity 100 %}%
+                    </p>
+
+                    <p>
+                        {% blocktrans %}% of registered or legal entities with an identifier that have a 'strict' identifier{% endblocktrans %}:
+                        {% widthratio statistics.count_entities_registeredEntity_legalEntity_with_any_identifier_with_id_and_scheme statistics.count_entities_registeredEntity_legalEntity_with_any_identifier 100 %}%
+                    </p>
+                {% endif %}
+
+                <h4>{% trans 'Person Statements' %}</h4>
+
+                <p>{% trans 'Total Statements' %}: {{ statistics.count_person_statements }}</p>
+
+                {% for key, count in statistics.count_person_statements_types.items %}
+                    {% if count > 0 %}
+                        <p>
+                            {% blocktrans %} ... with type {{ key }}{% endblocktrans %}:
+                            {{ count }}
+                            ({% widthratio count statistics.count_person_statements 100 %}%)
+                        </p>
+                    {% endif %}
+                {% endfor %}
+
+                {% if statistics.count_person_statements_have_pep_status %}
+                    <p>
+                        {% trans '... where PEP status is declared' %}:
+                        {{  statistics.count_person_statements_have_pep_status }}
+                        ({% widthratio statistics.count_person_statements_have_pep_status statistics.count_person_statements 100 %}%)
+                    </p>
+                {% endif %}
+
+                {% for key, count in statistics.count_person_statements_have_pep_status_statuses.items %}
+                    {% if count > 0 %}
+                        <p>
+                            {% blocktrans %} ... with PEP status {{ key }}{% endblocktrans %}:
+                            {{ count }}
+                            ({% widthratio count statistics.count_person_statements 100 %}%)
+                        </p>
+                    {% endif %}
+                {% endfor %}
+
+                <h4>{% trans 'Ownership or Control Statements' %}</h4>
+
+                <p>{% trans 'Total Statements' %}: {{ statistics.count_ownership_or_control_statement }}</p>
+
+                {% if statistics.count_ownership_or_control_statement_interested_party_with_person %}
+                    <p>
+                        {% trans ' ... where interested party is a person' %}:
+                        {{ statistics.count_ownership_or_control_statement_interested_party_with_person }}
+                        ({% widthratio statistics.count_ownership_or_control_statement_interested_party_with_person statistics.count_ownership_or_control_statement 100 %}%)
+                    </p>
+                {% endif %}
+                {% if statistics.count_ownership_or_control_statement_interested_party_with_entity %}
+                    <p>
+                        {% trans ' ... where interested party is a entity' %}:
+                        {{ statistics.count_ownership_or_control_statement_interested_party_with_entity }}
+                        ({% widthratio statistics.count_ownership_or_control_statement_interested_party_with_entity statistics.count_ownership_or_control_statement 100 %}%)
+                    </p>
+                {% endif %}
+                {% if statistics.count_ownership_or_control_statement_interested_party_with_unspecified %}
+                    <p>
+                        {% trans ' ... where interested party is unspecified' %}:
+                        {{ statistics.count_ownership_or_control_statement_interested_party_with_unspecified }}
+                        ({% widthratio statistics.count_ownership_or_control_statement_interested_party_with_unspecified statistics.count_ownership_or_control_statement 100 %}%)
+                    </p>
+                {% endif %}
+                {% if statistics.count_ownership_or_control_statement_with_at_least_one_interest_beneficial %}
+                    <p>
+                        {% trans ' ... where beneficial ownership relations are disclosed' %}:
+                        {{ statistics.count_ownership_or_control_statement_with_at_least_one_interest_beneficial }}
+                        ({% widthratio statistics.count_ownership_or_control_statement_with_at_least_one_interest_beneficial statistics.count_ownership_or_control_statement 100 %}%)
+                    </p>
+                {% endif %}
+
+                <p>{% trans 'Total Interest Objects' %}: {{ statistics.count_ownership_or_control_interest_statement }}</p>
+
+                {% if statistics.count_ownership_or_control_statement_interest_direct_or_indirect %}
+                    {% for key, count in statistics.count_ownership_or_control_statement_interest_direct_or_indirect.items %}
+                        {% if count > 0 %}
+                            <p>
+                                {% blocktrans %} ... with directOrIndirect '{{ key }}'{% endblocktrans %}:
+                                {{ count }}
+                                ({% widthratio count statistics.count_ownership_or_control_interest_statement 100 %}%)
+                            </p>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
+                {% for key, count in statistics.count_ownership_or_control_statement_interest_statement_types.items %}
+                    {% if count > 0 %}
+                        <p>
+                            {% blocktrans %} ... with type {{ key }}{% endblocktrans %}:
+                            {{ count }}
+                            ({% widthratio count statistics.count_ownership_or_control_interest_statement 100 %}%)
+                        </p>
+                    {% endif %}
+                {% endfor %}
+
+                {% if statistics.count_replaces_statements_missing %}
+                    <h4>{% trans 'Misc' %}</h4>
+
+                    <p>
+                        {% trans 'Count of previous statements that are referenced from replacesStatement and are missing' %}:
+                        {{ statistics.count_replaces_statements_missing }}
+                    </p>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock explore_content %}
+
+
+{% block topcontent1 %}
+{% endblock %}
+{% block bottomcontent1 %}
+{% endblock %}
+{% block bottomcontent2 %}
+{% endblock %}

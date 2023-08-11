@@ -1,0 +1,9 @@
+dealer
+sentry-sdk
+Django>3.2,<3.3
+jsonschema
+libcoverdls>=0.1.0
+libcoveweb2>=0.1.0
+gunicorn
+django-bootstrap3
+flattentool

@@ -1,0 +1,620 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-30 14:34+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:6
+msgid "Check"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:7
+msgid "Information"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:8
+msgid "Where problem occurs"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:16
+msgid "The statement has an identifier scheme which is not valid."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:19
+msgid "Invalid Scheme"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:28
+msgid ""
+"This statement references an entity but that entity is defined after this "
+"statement."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:31
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:43
+msgid "Entity that is out of order"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:40
+msgid ""
+"This statement references a person but that person is defined after this "
+"statement."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:52
+msgid ""
+"This Entity Statement is not used in any ownership or control statements."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:63
+msgid ""
+"This Person Statement is not used in any ownership or control statements."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:74
+msgid ""
+"This Entity Statement is referenced from an ownership or control statement, "
+"but it is missing."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:77
+msgid "Entity that is missing"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:86
+msgid ""
+"This Person Statement is referenced from an ownership or control statement, "
+"but it is missing."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:89
+msgid "Person that is missing"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:98
+msgid "This statement ID has been used more than once."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:101
+msgid "Statement ID"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:110
+msgid "This Person Statement has a birthday that is to early."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:113
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:125
+msgid "Year"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:122
+msgid "This Person Statement has a birthday that is to late."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:134
+msgid ""
+"This Entity Statement has an address type that is not allowed in entity "
+"statements."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:137
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:149
+msgid "Type"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:146
+msgid ""
+"This Person Statement has an address type that is not allowed in person "
+"statements."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:158
+msgid "This Entity Statement has an alternate address but no other addresses."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:170
+msgid "This Person Statement has an alternate address but no other addresses."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:182
+msgid ""
+"This Ownership-or-control Statement has a component statement that is not in "
+"this package."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:185
+msgid "Component Statement ID"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:194
+msgid ""
+"An Ownership-or-control Statement cannot both be a component statement "
+"(isComponent) and have component statements (componentStatementIDs)."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:205
+msgid ""
+"This Person Statement is a component (isComponent) but no primary Ownership-"
+"or-control Statement references it (from componentStatementIDs)"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:216
+msgid ""
+"This Entity Statement is a component (isComponent) but no primary Ownership-"
+"or-control Statement references it (from componentStatementIDs)"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:227
+msgid ""
+"This Ownership-or-control Statement is a component (isComponent) but no "
+"primary Ownership-or-control Statement references it (from "
+"componentStatementIDs)"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:238
+msgid ""
+"This Person Statement is a component (isComponent) and should appear "
+"<strong>before</strong> the primary Ownership-or-control Statement that "
+"references it (from componentStatementIDs)."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:249
+msgid ""
+"This Entity Statement is a component (isComponent) and should appear "
+"<strong>before</strong> the primary Ownership-or-control Statement that "
+"references it (from componentStatementIDs)."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:260
+msgid ""
+"This Ownership-or-control Statement is a component (isComponent) and should "
+"appear <strong>before</strong> the primary Ownership-or-control Statement "
+"that references it (from componentStatementIDs)."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:271
+msgid ""
+"This Person Statement and the first statement of the submitted data "
+"reference different BODS versions."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:274
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:286
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:298
+#: cove_rdls/templates/cove_rdls/explore.html:38
+msgid "Schema Version Used"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:283
+msgid ""
+"This Entity Statement and the first statement of the submitted data "
+"reference different BODS versions."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:295
+msgid ""
+"This Ownership-or-control Statement and the first statement of the submitted "
+"data reference different BODS versions."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:307
+msgid "This data attempted to use a schema version that was not recognised."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:318
+msgid ""
+"This Ownership-or-control Statement contains interests where "
+"beneficialOwnershipOrControl is true. Therefore interestedParty must "
+"reference a Person Statement."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:329
+msgid "The specified entitySubtype is not valid for the specified entityType."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:340
+msgid ""
+"This Entity Statement hasPublicListing that does not exist or is false. "
+"Information has been provided under companyFilingsURLs or securitiesListings "
+"so hasPublicListing must be true."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:351
+msgid ""
+"This Entity Statement has a security listing where marketIdentifierCode is "
+"set but operatingMarketIdentifierCode is not set."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:362
+msgid ""
+"This Entity Statement has a security listing where "
+"operatingMarketIdentifierCode is set but marketIdentifierCode is not set."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:374
+msgid ""
+"This Person Statement has some PEP details without missing info but their "
+"PEP status has not been declared as True."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:386
+msgid ""
+"This Person Statement has some PEP details but their PEP status is missing "
+"or has been declared as 'isNotPep'."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:399
+msgid ""
+"This Person Statement has some PEP details with missing info but their "
+"status has been declared as True."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:401
+msgid ""
+"This Person Statement has a missingInfoReason for PEP status details, so PEP "
+"status should be declared as 'unknown'."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:415
+msgid ""
+"No individuals are disclosed as beneficial owners. "
+"beneficialOwnershipOrControl must be set to true within an Interest object "
+"to indicate that the interested party is a beneficial owner."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/additional_checks_table.html:420
+msgid "All Ownership-or-control statements"
+msgstr ""
+
+#. Translators: Label of a button that triggers search
+#: cove_rdls/templates/cove_rdls/base.html:44
+msgid "Go"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:51
+msgid " Data Review Tool"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:54
+msgid " BODS Documentation "
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:77
+msgid "Open Ownership"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:78
+msgid "Beneficial Ownership Data Standard"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:87
+msgid "About BODS "
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:88
+msgid ""
+"Increasingly governments across the globe require companies to disclose "
+"information about who ultimately owns and controls them (their beneficial "
+"owners). These efforts to increase corporate transparency  and counter "
+"corruption require information to be shared across institutions, sectors  "
+"and borders."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:89
+msgid ""
+"The Beneficial Ownership Data Standard (BODS) enables people and "
+"institutions to publish information about beneficial ownership in a "
+"standardised way. The resulting beneficial ownership data is interoperable, "
+"more easily reused, and higher quality. Learn more at the <a href=\"http://"
+"standard.openownership.org\">BODS documentation website</a>."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:97
+msgid "Checking and reviewing your data"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:98
+msgid ""
+"After submitting your data you will be presented with the results of your "
+"data review:"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:100
+msgid ""
+"<b>Download data</b>. A chance to save your data in an alternative format."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:101
+msgid "<b>Validation errors</b>. A list of standard JSON validation errors."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:102
+msgid ""
+"<b>Additional fields</b>. If your data contains unrecognised fields, they "
+"will be listed."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:103
+msgid "<b>Additional checks</b>. A list of BODS-specific problems in the data."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:104
+msgid ""
+"<b>Statistics</b>. A breakdown of the make-up of your data and indicators of "
+"its quality."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:106
+msgid ""
+"Amend your data to address errors and problems, or to improve its quality."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:119
+msgid "Using the data review tool"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:120
+msgid ""
+"Use one of the links below to check that your data complies with the <a href="
+"\"#introduction\">Beneficial Ownership Data Standard</a> (BODS)."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:122
+msgid "<b>Upload</b> a BODS file;"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:123
+msgid "<b>Link</b> to BODS data on the web using a URL; or"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:124
+msgid "<b>Paste</b> in your BODS JSON data"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:127
+msgid ""
+"After submitting your data, use the information provided on the Results page "
+"to <a href=\"#introduction\">check and review</a> the data’s quality and "
+"compliance with BODS. Your data can also be downloaded in alternative BODS-"
+"compliant formats from the Results page."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:129
+msgid ""
+"If your data file is larger than 10MB, this analysis may take some time. "
+"Email <a href=\"mailto:support@openownership.org\">support@openownership."
+"org</a> to get help from the Open Ownership helpdesk with checking large "
+"files. Alternatively you can install our <a href=\"https://pypi.org/project/"
+"libcoverdls/\">data review library</a> to analyse files via your command "
+"line interface."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:131
+msgid "Accepted BODS formats:"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:133
+msgid ""
+"JSON built to the <a href=\"#introduction\">Beneficial Ownership Data "
+"Standard</a> (UTF-8 encoding supported)"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:134
+msgid ""
+"Multi-table data package - Excel (.xlsx) (UTF-8, Windows-1252 and ISO-8859-1 "
+"encodings supported)"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:146
+msgid "Built by"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:146
+msgid "Open Data Services"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:147
+msgid "The code for this site is available on"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:147
+msgid "GitHub"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:147
+msgid "Licence"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:147
+msgid "AGPLv3"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:147
+msgid "Report/View issues"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:147
+msgid "cove-rdls issues"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/base.html:152
+msgid "Running version "
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:5
+msgid "Load New File"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:14
+msgid "Schema Version"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:20
+msgid " The first statement of the submitted data has a BODS version of: "
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:29
+msgid "This is not a valid BODS version."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:33
+msgid ""
+"A subsequent statement (or statements) specify a different BODS version."
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:36
+msgid ""
+"All statements in the submitted data will therefore be validated against "
+"BODS version:"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:49
+msgid "Download Data"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:67
+msgid "The JSON could not be converted to Spreadsheet due to the error:"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:99
+msgid "Convert to Spreadsheet"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:129
+#: cove_rdls/templates/cove_rdls/explore.html:140
+msgid "Validation Errors"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:144
+msgid "There were no validation errors!"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:161
+#: cove_rdls/templates/cove_rdls/explore.html:172
+msgid "Additional Fields"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:176
+msgid "There were no additional fields!"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:190
+msgid "Additional Checks"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:197
+msgid "All checks passed!"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:209
+msgid "Statistics"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:214
+msgid "Entity Statements"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:216
+#: cove_rdls/templates/cove_rdls/explore.html:242
+#: cove_rdls/templates/cove_rdls/explore.html:274
+msgid "Total Statements"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:221
+#: cove_rdls/templates/cove_rdls/explore.html:247
+#: cove_rdls/templates/cove_rdls/explore.html:322
+#, python-format
+msgid " ... with type %(key)s"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:230
+#, python-format
+msgid "%% of registered or legal entities with any identifier"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:235
+#, python-format
+msgid ""
+"%% of registered or legal entities with an identifier that have a 'strict' "
+"identifier"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:240
+msgid "Person Statements"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:256
+msgid "... where PEP status is declared"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:265
+#, python-format
+msgid " ... with PEP status %(key)s"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:272
+msgid "Ownership or Control Statements"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:278
+msgid " ... where interested party is a person"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:285
+msgid " ... where interested party is a entity"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:292
+msgid " ... where interested party is unspecified"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:299
+msgid " ... where beneficial ownership relations are disclosed"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:305
+msgid "Total Interest Objects"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:311
+#, python-format
+msgid " ... with directOrIndirect '%(key)s'"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:330
+msgid "Misc"
+msgstr ""
+
+#: cove_rdls/templates/cove_rdls/explore.html:333
+msgid ""
+"Count of previous statements that are referenced from replacesStatement and "
+"are missing"
+msgstr ""
+
+#: cove_rdls/views.py:59 cove_rdls/views.py:70
+msgid "Sorry, we can't process that data"
+msgstr ""
+
+#: cove_rdls/views.py:61 cove_rdls/views.py:72
+msgid "Try Again"
+msgstr ""
+
+#: cove_rdls/views.py:73
+msgid ""
+"BODS JSON should have a list as the top level, the JSON you supplied does "
+"not."
+msgstr ""
