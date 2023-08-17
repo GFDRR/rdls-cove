@@ -10,9 +10,9 @@ jobs:
     - name: Install SSH key
       uses: shimataro/ssh-key-action@v2
       with:
-        key: ${{ secrets.DOKKU_SSH_PRIVATE_KEY }}
+        key: ${{ secrets.DOKKUSD_SSH_PRIVATE_KEY }}
         name: id_rsa_rdls_dev1 # optional
-        known_hosts: ${{ vars.DOKKU_SSH_KEYSCAN }}
+        known_hosts: ${{ vars.DOKKUSD_SSH_KEYSCAN }}
     - name: Setup python
       uses: actions/setup-python@v2
       with:
@@ -21,6 +21,6 @@ jobs:
     - run: pip install dokkusd
     - run: python -m dokkusd.cli destroy --appname ${{ vars.DOKKU_APP_NAME_PREFIX }}-${{ github.event.ref }}
       env:
-        DOKKUSD_REMOTE_HOST: ${{ vars.DOKKU_REMOTE_HOST }}
-        DOKKUSD_REMOTE_PORT: ${{ vars.DOKKU_REMOTE_PORT }}
-        DOKKUSD_REMOTE_USER: ${{ vars.DOKKU_REMOTE_USER }}
+        DOKKUSD_REMOTE_HOST: ${{ vars.DOKKUSD_REMOTE_HOST }}
+        DOKKUSD_REMOTE_PORT: ${{ vars.DOKKUSD_REMOTE_PORT }}
+        DOKKUSD_REMOTE_USER: ${{ vars.DOKKUSD_REMOTE_USER }}
