@@ -4,7 +4,7 @@ This repository is for maintaining the RDLS Conversion and Validation Tool, whic
 
 Linked repo: [rdls-lib-cove](https://github.com/GFDRR/rdls-lib-cove)
 
-Documented at [rdl-standard.readthedocs.io](https://rdl-standard.readthedocs.io/en/latest/).
+The standard is documented at [rdl-standard.readthedocs.io](https://rdl-standard.readthedocs.io/en/latest/).
 Documentation is maintained at [github.com/GFDRR/rdl-standard](https://github.com/GFDRR/rdl-standard).
 
 ## Dev installation
