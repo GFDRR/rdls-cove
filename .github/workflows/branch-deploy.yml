@@ -10,7 +10,7 @@ jobs:
       uses: shimataro/ssh-key-action@v2
       with:
         key: ${{ secrets.DOKKUSD_SSH_PRIVATE_KEY }}
-        name: id_rsa_rdls_dev1 # optional
+        name: rdls-dokku-dev1 # optional
         known_hosts: ${{ vars.DOKKUSD_SSH_KEYSCAN }}
     - uses: actions/checkout@v2
       with:
