@@ -142,7 +142,7 @@ libcove2==0.1.0
     # via
     #   -r requirements.txt
     #   libcoverdls
--e git+ssh://git@github.com/GFDRR/rdls-lib-cove.git#egg=libcoverdls
+-e git+https://github.com/GFDRR/rdls-lib-cove.git#egg=libcoverdls
 #libcoverdls==0.15.0
     # via -r requirements.txt
 libcoveweb2==0.1.0
