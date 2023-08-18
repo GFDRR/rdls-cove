@@ -11,7 +11,6 @@ jobs:
       uses: shimataro/ssh-key-action@v2
       with:
         key: ${{ secrets.DOKKUSD_BRANCH_SSH_PRIVATE_KEY }}
-        name: rdls-dokku-dev1-key # optional
         known_hosts: ${{ vars.DOKKUSD_BRANCH_SSH_KEYSCAN }}
     - name: Setup python
       uses: actions/setup-python@v2
