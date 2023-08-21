@@ -174,7 +174,7 @@
                 </h4>
             </div>
             <div id="additionalChecksTable" class="collapse in panel-body">
-                {% if additional_checks_count or not statistics.count_ownership_or_control_statement_with_at_least_one_interest_beneficial %}
+                {% if additional_checks_count %}
                     {% include "cove_rdls/additional_checks_table.html" %}
                 {% else %}
                     <p>{% trans 'All checks passed!' %}</p>
@@ -194,129 +194,21 @@
             </div>
             <div id="statisticsTable" class="collapse in panel-body">
 
-                <h4>{% trans 'Entity Statements' %}</h4>
+                <h4>{% trans 'Hazard Datasets' %}</h4>
 
-                <p>{% trans 'Total Statements' %}: {{ statistics.count_entity_statements }}</p>
+                <p>{% trans 'Total Datasets' %}: {{ statistics.count_hazard_datasets }}</p>
 
-                {% for key, count in statistics.count_entity_statements_types.items %}
-                    {% if count > 0 %}
-                        <p>
-                            {% blocktrans %} ... with type {{ key }}{% endblocktrans %}:
-                            {{ count }}
-                            ({% widthratio count statistics.count_entity_statements 100 %}%)
-                        </p>
-                    {% endif %}
-                {% endfor %}
+                <h4>{% trans 'Exposure Datasets' %}</h4>
 
-                {% if statistics.count_entities_registeredEntity_legalEntity %}
-                    <p>
-                        {% blocktrans %}% of registered or legal entities with any identifier{% endblocktrans %}:
-                        {% widthratio statistics.count_entities_registeredEntity_legalEntity_with_any_identifier statistics.count_entities_registeredEntity_legalEntity 100 %}%
-                    </p>
+                <p>{% trans 'Total Datasets' %}: {{ statistics.count_exposure_datasets }}</p>
 
-                    <p>
-                        {% blocktrans %}% of registered or legal entities with an identifier that have a 'strict' identifier{% endblocktrans %}:
-                        {% widthratio statistics.count_entities_registeredEntity_legalEntity_with_any_identifier_with_id_and_scheme statistics.count_entities_registeredEntity_legalEntity_with_any_identifier 100 %}%
-                    </p>
-                {% endif %}
+                <h4>{% trans 'Vulnerability Datasets' %}</h4>
 
-                <h4>{% trans 'Person Statements' %}</h4>
+                <p>{% trans 'Total Datasets' %}: {{ statistics.count_vulnerability_datasets }}</p>
 
-                <p>{% trans 'Total Statements' %}: {{ statistics.count_person_statements }}</p>
+                <h4>{% trans 'Loss Datasets' %}</h4>
 
-                {% for key, count in statistics.count_person_statements_types.items %}
-                    {% if count > 0 %}
-                        <p>
-                            {% blocktrans %} ... with type {{ key }}{% endblocktrans %}:
-                            {{ count }}
-                            ({% widthratio count statistics.count_person_statements 100 %}%)
-                        </p>
-                    {% endif %}
-                {% endfor %}
-
-                {% if statistics.count_person_statements_have_pep_status %}
-                    <p>
-                        {% trans '... where PEP status is declared' %}:
-                        {{  statistics.count_person_statements_have_pep_status }}
-                        ({% widthratio statistics.count_person_statements_have_pep_status statistics.count_person_statements 100 %}%)
-                    </p>
-                {% endif %}
-
-                {% for key, count in statistics.count_person_statements_have_pep_status_statuses.items %}
-                    {% if count > 0 %}
-                        <p>
-                            {% blocktrans %} ... with PEP status {{ key }}{% endblocktrans %}:
-                            {{ count }}
-                            ({% widthratio count statistics.count_person_statements 100 %}%)
-                        </p>
-                    {% endif %}
-                {% endfor %}
-
-                <h4>{% trans 'Ownership or Control Statements' %}</h4>
-
-                <p>{% trans 'Total Statements' %}: {{ statistics.count_ownership_or_control_statement }}</p>
-
-                {% if statistics.count_ownership_or_control_statement_interested_party_with_person %}
-                    <p>
-                        {% trans ' ... where interested party is a person' %}:
-                        {{ statistics.count_ownership_or_control_statement_interested_party_with_person }}
-                        ({% widthratio statistics.count_ownership_or_control_statement_interested_party_with_person statistics.count_ownership_or_control_statement 100 %}%)
-                    </p>
-                {% endif %}
-                {% if statistics.count_ownership_or_control_statement_interested_party_with_entity %}
-                    <p>
-                        {% trans ' ... where interested party is a entity' %}:
-                        {{ statistics.count_ownership_or_control_statement_interested_party_with_entity }}
-                        ({% widthratio statistics.count_ownership_or_control_statement_interested_party_with_entity statistics.count_ownership_or_control_statement 100 %}%)
-                    </p>
-                {% endif %}
-                {% if statistics.count_ownership_or_control_statement_interested_party_with_unspecified %}
-                    <p>
-                        {% trans ' ... where interested party is unspecified' %}:
-                        {{ statistics.count_ownership_or_control_statement_interested_party_with_unspecified }}
-                        ({% widthratio statistics.count_ownership_or_control_statement_interested_party_with_unspecified statistics.count_ownership_or_control_statement 100 %}%)
-                    </p>
-                {% endif %}
-                {% if statistics.count_ownership_or_control_statement_with_at_least_one_interest_beneficial %}
-                    <p>
-                        {% trans ' ... where beneficial ownership relations are disclosed' %}:
-                        {{ statistics.count_ownership_or_control_statement_with_at_least_one_interest_beneficial }}
-                        ({% widthratio statistics.count_ownership_or_control_statement_with_at_least_one_interest_beneficial statistics.count_ownership_or_control_statement 100 %}%)
-                    </p>
-                {% endif %}
-
-                <p>{% trans 'Total Interest Objects' %}: {{ statistics.count_ownership_or_control_interest_statement }}</p>
-
-                {% if statistics.count_ownership_or_control_statement_interest_direct_or_indirect %}
-                    {% for key, count in statistics.count_ownership_or_control_statement_interest_direct_or_indirect.items %}
-                        {% if count > 0 %}
-                            <p>
-                                {% blocktrans %} ... with directOrIndirect '{{ key }}'{% endblocktrans %}:
-                                {{ count }}
-                                ({% widthratio count statistics.count_ownership_or_control_interest_statement 100 %}%)
-                            </p>
-                        {% endif %}
-                    {% endfor %}
-                {% endif %}
-
-                {% for key, count in statistics.count_ownership_or_control_statement_interest_statement_types.items %}
-                    {% if count > 0 %}
-                        <p>
-                            {% blocktrans %} ... with type {{ key }}{% endblocktrans %}:
-                            {{ count }}
-                            ({% widthratio count statistics.count_ownership_or_control_interest_statement 100 %}%)
-                        </p>
-                    {% endif %}
-                {% endfor %}
-
-                {% if statistics.count_replaces_statements_missing %}
-                    <h4>{% trans 'Misc' %}</h4>
-
-                    <p>
-                        {% trans 'Count of previous statements that are referenced from replacesStatement and are missing' %}:
-                        {{ statistics.count_replaces_statements_missing }}
-                    </p>
-                {% endif %}
+                <p>{% trans 'Total Datasets' %}: {{ statistics.count_loss_datasets }}</p>
 
             </div>
         </div>
