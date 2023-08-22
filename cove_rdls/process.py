@@ -130,7 +130,7 @@ class ConvertSpreadsheetIntoJSON(ProcessDataTask):
         )
         with open(os.path.join(output_dir, "unflattened.json"), "r+") as f:
             json_data = json.loads(f.read())
-            json_data = {"datasets": [dataset for dataset in json_data if len(dataset) > 0]}
+            json_data = {"datasets": [dataset for dataset in json_data if len(dataset) > 1]}
             f.seek(0)
             f.write(json.dumps(json_data))
             f.truncate()
