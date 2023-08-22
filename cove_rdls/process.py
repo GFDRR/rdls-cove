@@ -313,29 +313,7 @@ class PythonValidateTask(TaskWithState):
         # counts
         context["additional_checks_count"] = len(context["additional_checks"])
 
-        # We need to calculate some stats for showing in the view
-        #total_ownership_or_control_interest_statements = 0
-        #for key, count in \
-        #        context['statistics']['count_ownership_or_control_statement_interest_statement_types'].items():
-        #    total_ownership_or_control_interest_statements += count
-        #context['statistics'][
-        #    'count_ownership_or_control_interest_statement'] = total_ownership_or_control_interest_statements  # noqa
-
-        # The use of r_e_type is to stop flake8 complaining about line length
-        #r_e_type = 'registeredEntity'
-        #context['statistics']['count_entities_registeredEntity_legalEntity_with_any_identifier'] = (
-        #        context['statistics']['count_entity_statements_types_with_any_identifier'][r_e_type] +
-        #        context['statistics']['count_entity_statements_types_with_any_identifier']['legalEntity'])
-        #context['statistics']['count_entities_registeredEntity_legalEntity_with_any_identifier_with_id_and_scheme'] = (
-        #        context['statistics']['count_entity_statements_types_with_any_identifier_with_id_and_scheme'][
-        #            r_e_type] +
-        #        context['statistics']['count_entity_statements_types_with_any_identifier_with_id_and_scheme'][
-        #            'legalEntity'])
-        #context['statistics']['count_entities_registeredEntity_legalEntity'] = (
-        #        context['statistics']['count_entity_statements_types'][r_e_type] +
-        #        context['statistics']['count_entity_statements_types']['legalEntity'])
-
-
+        # Old code removed here
         unknown_schema_version_used = \
             [i for i in context['additional_checks'] if i['type'] == 'unknown_schema_version_used']
         context['unknown_schema_version_used'] = unknown_schema_version_used[0] \
