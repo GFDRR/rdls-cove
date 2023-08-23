@@ -175,6 +175,8 @@ class ConvertSpreadsheetIntoJSON(ProcessDataTask):
 
         unflatten_kwargs = {
             "output_name": os.path.join(output_dir, "unflattened.json"),
+            "cell_source_map": os.path.join(output_dir, "cell_source_map.json"),
+            "heading_source_map": os.path.join(output_dir, "heading_source_map.json"),
             "metatab-name": "Meta",
             "id-name": "id",
             "root_list_path": "datasets",
