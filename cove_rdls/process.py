@@ -180,7 +180,7 @@ class ConvertSpreadsheetIntoJSON(ProcessDataTask):
             "root_list_path": "datasets",
             "root_id": "id",
             "input_format": get_file_type_for_flatten_tool(supplied_data_json_file),
-            "schema": schema.pkg_schema_url,
+            "schema": schema.schema_url,
         }
 
         flattentool.unflatten(input_filename, **unflatten_kwargs)
@@ -292,7 +292,7 @@ class ConvertJSONIntoSpreadsheets(ProcessDataTask):
             "root_id": "statementID",
             "id_name": "statementID",
             "root_is_list": True,
-            "schema": process_data['schema'].pkg_schema_url,
+            "schema": process_data['schema'].schema_url,
         }
 
         try:
