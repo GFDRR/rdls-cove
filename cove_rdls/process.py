@@ -163,12 +163,22 @@ class ConvertSpreadsheetIntoJSON(ProcessDataTask):
         # We don't know what schema version the spreadsheet is in. Use default schema.
         schema = SchemaRDLS()
 
+#        unflatten_kwargs = {
+#            "output_name": os.path.join(output_dir, "unflattened.json"),
+#            "root_list_path": "there-is-no-root-list-path",
+#            "root_id": "statementID",
+#            "id_name": "statementID",
+#            "root_is_list": True,
+#            "input_format": get_file_type_for_flatten_tool(supplied_data_json_file),
+#            "schema": schema.pkg_schema_url,
+#        }
+
         unflatten_kwargs = {
             "output_name": os.path.join(output_dir, "unflattened.json"),
-            "root_list_path": "there-is-no-root-list-path",
-            "root_id": "statementID",
-            "id_name": "statementID",
-            "root_is_list": True,
+            "metatab-name": "Meta",
+            "id-name": "id",
+            "root_list_path": "datasets",
+            "root_id": "id",
             "input_format": get_file_type_for_flatten_tool(supplied_data_json_file),
             "schema": schema.pkg_schema_url,
         }
