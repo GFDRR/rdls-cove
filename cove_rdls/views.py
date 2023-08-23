@@ -76,7 +76,6 @@ class ExploreRDLSView(ExploreDataView):
     error_template = "cove_rdls/error.html"
 
     def default_explore_context(self, supplied_data):
-        logger.info(supplied_data)
         return {
             # Misc
             "supplied_data_files": SuppliedDataFile.objects.filter(

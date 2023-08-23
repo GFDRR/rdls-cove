@@ -35,7 +35,7 @@
 	<strong><code>{{ errors.0.path_ending}}</code> has non-unique items. The items in <code>{{ errors.0.path_ending}}</code> must be unique.</strong>
       {% elif errors.0.validator == "enum" %}
 	<strong><code>{{ errors.0.path_ending }}</code> does not match any code. <code>{{ errors.0.path_ending }}</code> must match a code from the codelist specified in the schema.</strong>
-      {% elif errors.0.validator == "pattern" and len(errors.0.path) > 2 and errors.0.path[-2] == "Link" and errors.0.path[-1] == "rel" %}
+      {% elif errors.0.validator == "pattern" and errors.0.path|length > 2 and errors.0.path|slice:"-2:-1" == "Link" and errors.0.path|last == "rel" %}
         <strong><code>{{ errors.0.path_ending }}</code> does not match the regex <code>{{ errors.0.validator_value }}</code>. With the exception of the first item in the <code>links</code> array, the value of <code>{{ errors.0.path_ending }}</code> must not be 'describedby'.</code></strong>
       {% elif errors.0.validator == "format" and errors.0.validator_value == "date" %}
         <strong><code>{{ errors.0.path_ending }}</code> is not a date. Date values must be provided in <code>YYYY-MM-DD</code> format.</strong>
@@ -63,7 +63,7 @@
         <strong><code>{{ errors.0.path_ending }}</code> is an empty object. Fields with no value must be omitted in their entirety (key and value).</strong>
       {% elif errors.0.validator == "dependencies" %}
         <strong>{{ errors.0.message  }}</strong>
-      {% elif errors.0.validator == "oneOf" and "schema" in errors.0.message and len(errors.0.path) > 2 and errors.0.path[-2] == "Period" and errors.0.path[-1] in ("start", "end") %}
+      {% elif errors.0.validator == "oneOf" and "schema" in errors.0.message and errors.0.path|length > 2 and errors.0.path|slice:"-2:-1" == "Period" and errors.0.path|last in ("start", "end") %}
 	<strong><code>{{ errors.0.path_ending }}</code> is incorrectly formatted. It must be formatted as a date (<code>YYYY-MM-DD</code>), a year-month (<code>YYYY-MM</code>) or a year (<code>YYYY</code>).</strong>
       {% elif errors.0.validator == "anyOf" %}
         <strong>{{ errors.0.message  }}</strong>
