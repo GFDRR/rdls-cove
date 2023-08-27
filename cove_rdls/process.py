@@ -182,7 +182,7 @@ class ConvertSpreadsheetIntoJSON(ProcessDataTask):
             "root_list_path": "datasets",
             "root_id": "id",
             "input_format": get_file_type_for_flatten_tool(supplied_data_json_file),
-            "schema": schema.schema_url,
+            "schema": schema.schema_pkg_url,
         }
 
         flattentool.unflatten(input_filename, **unflatten_kwargs)
