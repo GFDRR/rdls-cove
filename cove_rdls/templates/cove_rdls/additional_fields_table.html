@@ -5,20 +5,20 @@
     <tr>
         <th class="">{% trans 'Field Name' %}</th>
         <th class="">{% trans 'Contents' %}</th>
-        <th class="">{% trans 'Where problem occurs' %}</th>
+        <th class="">{% trans 'Where field occurs' %}</th>
     </tr>
     </thead>
     <tbody>
-    {% for additional_field in additional_fields %}
+    {% for key, value in additional_fields.items %}
             <tr>
                 <td>
-                    {{ additional_field.field_name }}
+                    {{ value.field_name }}
                 </td>
                 <td>
-                    {{ additional_field.examples }}
+                    {{ value.examples }}
                 </td>
                 <td>
-                    {{ additional_field.path }}
+                    {{ value.path }}
                 </td>
             </tr>
     {% endfor %}
