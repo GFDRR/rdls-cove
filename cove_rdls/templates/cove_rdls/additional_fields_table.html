@@ -1,0 +1,26 @@
+{% load i18n %}
+
+<table class="table">
+    <thead>
+    <tr>
+        <th class="">{% trans 'Field Name' %}</th>
+        <th class="">{% trans 'Contents' %}</th>
+        <th class="">{% trans 'Where problem occurs' %}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for additional_field in additional_fields %}
+            <tr>
+                <td>
+                    {{ additional_field.field_name }}
+                </td>
+                <td>
+                    {{ additional_field.examples }}
+                </td>
+                <td>
+                    {{ additional_field.path }}
+                </td>
+            </tr>
+    {% endfor %}
+    </tbody>
+</table>
