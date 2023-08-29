@@ -8,6 +8,9 @@
     <th>{% trans 'Error Count' %}</th>
     <th>{% trans 'First 3 Examples' %}</th>
     <th>{% trans 'Location of first 3 errors' %}</th>
+    {% if file_type == 'xlsx' or file_type == 'csv' %}
+      <th>{% trans 'Spreadsheet Location of first 3 errors' %}</th> 
+    {% endif %}
   </tr>
 </thead>
 <tbody>
@@ -99,6 +102,13 @@
       {% endfor %}
     </ul>
   </td>
+  {% if file_type == 'xlsx' or file_type == 'csv' %}
+  <td style="white-space: nowrap">
+    <ul class="list-unstyled">
+      <li> </li>
+    </ul>
+  </td>
+  {% endif %}
 </tr>
 {% endfor %}
 </tbody>
