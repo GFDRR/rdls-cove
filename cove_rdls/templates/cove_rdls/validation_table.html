@@ -100,9 +100,7 @@
   {% if file_type == 'xlsx' or file_type == 'csv' %}
   <td style="white-space: nowrap">
     <ul class="list-unstyled">
-      {# for value in values|slice:":3" #}
       <li> <b>{% trans "Sheet" %}:</b> {{ errors.0.location.sheet }} <b>{% trans "Row" %}:</b> {{ errors.0.location.row_number }} {% if errors.0.location.header %} <b>{% trans "Column" %}:</b> {{ errors.0.location.header }} {% endif %} </li>
-      {# endfor #}
     </ul>
   </td>
   {% endif %}
