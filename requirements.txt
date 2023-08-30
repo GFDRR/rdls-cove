@@ -82,7 +82,8 @@ libcove2==0.1.0
 -e git+https://github.com/GFDRR/rdls-lib-cove.git#egg=libcoverdls
 #libcoverdls==0.1.0
     # via -r requirements.in
-libcoveweb2==0.2.0
+-e git+https://github.com/OpenDataServices/lib-cove-web-2.git@2023-07-19#egg=libcoveweb2
+#libcoveweb2==0.2.0
     # via -r requirements.in
 lxml==4.9.2
     # via flattentool
