@@ -181,6 +181,7 @@ class ConvertSpreadsheetIntoJSON(ProcessDataTask):
             "id_name": "id",
             "root_list_path": "datasets",
             "root_id": "id",
+            "convert_wkt": True,
             "input_format": get_file_type_for_flatten_tool(supplied_data_json_file),
             "schema": schema.pkg_schema_url,
         }
@@ -294,6 +295,7 @@ class ConvertJSONIntoSpreadsheets(ProcessDataTask):
             "root_id": "statementID",
             "id_name": "statementID",
             "root_is_list": True,
+            "convert_wkt": True,
             "schema": process_data['schema'].schema_url,
         }
 
