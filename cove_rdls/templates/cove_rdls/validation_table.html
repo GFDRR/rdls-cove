@@ -105,7 +105,7 @@
     </ul>
   </td>
   {% if original_format == 'spreadsheet' %}
-  <td style="white-space: nowrap">
+  <td>
     <ul class="list-unstyled">
       {% for error in errors|slice:":3" %}
         <li> <b>{% trans "Sheet" %}:</b> {{ error.location.sheet }} <b>{% trans "Row" %}:</b> {{ error.location.row_number }} {% if error.location.header %} <b>{% trans "Column" %}:</b> {{ error.location.header }} {% endif %} </li>
