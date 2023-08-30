@@ -10,7 +10,7 @@
     <th>{% trans 'Error Count' %}</th>
     <th>{% trans 'First 3 Examples' %}</th>
     <th>{% trans 'Location of first 3 errors' %}</th>
-    {% if file_type == 'xlsx' or file_type == 'csv' %}
+    {% if original_format == 'spreadsheet' %}
       <th>{% trans 'Spreadsheet Location of first 3 errors' %}</th> 
     {% endif %}
   </tr>
@@ -107,7 +107,9 @@
   {% if original_format == 'spreadsheet' %}
   <td style="white-space: nowrap">
     <ul class="list-unstyled">
-      <li> </li>
+      {% for error in errors|slice:":3" %}
+        <li>{{ error }}</li>
+      {% endfor %}
     </ul>
   </td>
   {% endif %}
