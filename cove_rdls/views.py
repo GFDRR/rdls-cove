@@ -54,7 +54,7 @@ class NewInput(InputDataView):
             )
         elif form_name == "url_form":
             supplied_data.save_file_from_source_url(
-                form.cleaned_data["url"], content_type="application/json"
+                form.cleaned_data["url"]
             )
 
 

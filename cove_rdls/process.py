@@ -84,13 +84,17 @@ class WasJSONUploaded(ProcessDataTask):
         if self.supplied_data.format != "json":
             return process_data
 
-        supplied_data_json_files = SuppliedDataFile.objects.filter(
-            supplied_data=self.supplied_data, content_type="application/json"
-        )
-        if supplied_data_json_files.count() == 1:
+        #supplied_data_json_files = SuppliedDataFile.objects.filter(
+        #    supplied_data=self.supplied_data, content_type="application/json"
+        #)
+        supplied_data_json_files = [i for i in self.supplied_data_files
+                                      if get_file_type_for_flatten_tool(i) == "json"]
+        #if supplied_data_json_files.count() == 1:
+        if len(supplied_data_json_files) == 1:
             process_data[
                 "json_data_filename"
-            ] = supplied_data_json_files.first().upload_dir_and_filename()
+            #] = supplied_data_json_files.first().upload_dir_and_filename()
+            ] = supplied_data_json_files[0].upload_dir_and_filename()
         else:
             raise Exception("Can't find JSON original data!")
 
