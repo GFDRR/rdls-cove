@@ -84,16 +84,11 @@ class WasJSONUploaded(ProcessDataTask):
         if self.supplied_data.format != "json":
             return process_data
 
-        #supplied_data_json_files = SuppliedDataFile.objects.filter(
-        #    supplied_data=self.supplied_data, content_type="application/json"
-        #)
-        supplied_data_json_files = [i for i in self.supplied_data_files
-                                      if get_file_type_for_flatten_tool(i) == "json"]
-        #if supplied_data_json_files.count() == 1:
+        supplied_data_json_files = [i for i in self.supplied_data_files if
+                                    get_file_type_for_flatten_tool(i) == "json"]
         if len(supplied_data_json_files) == 1:
             process_data[
                 "json_data_filename"
-            #] = supplied_data_json_files.first().upload_dir_and_filename()
             ] = supplied_data_json_files[0].upload_dir_and_filename()
         else:
             raise Exception("Can't find JSON original data!")
@@ -143,7 +138,7 @@ class ConvertSpreadsheetIntoJSON(ProcessDataTask):
         input_filename = supplied_data_json_file.upload_dir_and_filename()
         filename = input_filename.split("/")[-1]
         if self.supplied_data.source_method == "url":
-            if not "." in filename:
+            if "." not in filename:
                 file_renamed = f"{input_filename}.xlsx"
                 os.symlink(input_filename, file_renamed)
                 return file_renamed
@@ -166,7 +161,6 @@ class ConvertSpreadsheetIntoJSON(ProcessDataTask):
             raise Exception("Can't find Spreadsheet original data!")
 
         supplied_data_json_file = supplied_data_json_files.first()
-        #input_filename = supplied_data_json_file.upload_dir_and_filename()
         input_filename = self._fix_filename(supplied_data_json_file)
 
         output_dir = os.path.join(
@@ -177,16 +171,6 @@ class ConvertSpreadsheetIntoJSON(ProcessDataTask):
 
         # We don't know what schema version the spreadsheet is in. Use default schema.
         schema = SchemaRDLS()
-
-#        unflatten_kwargs = {
-#            "output_name": os.path.join(output_dir, "unflattened.json"),
-#            "root_list_path": "there-is-no-root-list-path",
-#            "root_id": "statementID",
-#            "id_name": "statementID",
-#            "root_is_list": True,
-#            "input_format": get_file_type_for_flatten_tool(supplied_data_json_file),
-#            "schema": schema.pkg_schema_url,
-#        }
 
         unflatten_kwargs = {
             "output_name": os.path.join(output_dir, "unflattened.json"),
