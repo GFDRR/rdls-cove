@@ -163,7 +163,6 @@
 
     </div>
 
-    {# Hide additional checks section for now #}
     {% if show_additional_checks %}
     <div class="row">
 
@@ -187,6 +186,8 @@
     </div>
     {% endif %}
 
+    {# Hide statistics section for now #}
+    {% if show_statistics %}
     <div class="row">
         <div class="panel panel-success">
             <div id="statistics-panel" class="panel-heading pointer" role="region" aria-expanded="true"
@@ -216,7 +217,7 @@
             </div>
         </div>
     </div>
-
+    {% endif %}
 
 {% endblock explore_content %}
 
