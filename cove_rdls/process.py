@@ -139,6 +139,16 @@ class ConvertSpreadsheetIntoJSON(ProcessDataTask):
             f.write(json.dumps(json_data))
             f.truncate()
 
+    def _fix_filename(self, supplied_data_json_file):
+        input_filename = supplied_data_json_file.upload_dir_and_filename()
+        filename = input_filename.split("/")[-1]
+        if self.supplied_data.source_method == "url":
+            if not "." in filename:
+                file_renamed = f"{input_filename}.xlsx"
+                os.symlink(input_filename, file_renamed)
+                return file_renamed
+        return input_filename
+
     def process(self, process_data: dict) -> dict:
         if self.supplied_data.format != "spreadsheet":
             return process_data
@@ -156,7 +166,8 @@ class ConvertSpreadsheetIntoJSON(ProcessDataTask):
             raise Exception("Can't find Spreadsheet original data!")
 
         supplied_data_json_file = supplied_data_json_files.first()
-        input_filename = supplied_data_json_file.upload_dir_and_filename()
+        #input_filename = supplied_data_json_file.upload_dir_and_filename()
+        input_filename = self._fix_filename(supplied_data_json_file)
 
         output_dir = os.path.join(
             self.supplied_data.data_dir(), CONVERT_SPREADSHEET_INTO_JSON_DIR_NAME
