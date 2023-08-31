@@ -68,6 +68,7 @@ class SetOrTestSuppliedDataFormat(ProcessDataTask):
                     os.symlink(input_filename, file_renamed)
                     supplied_data_file.filename = file_renamed.split("/")[-1]
                     supplied_data_file.save()
+        raise Exception(f"add_extention - source_method: {supplied_data_file.source_method}, filename: {filename}")
 
     def process(self, process_data: dict) -> dict:
         if self.supplied_data.format == "unknown":
