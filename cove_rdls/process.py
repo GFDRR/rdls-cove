@@ -21,6 +21,8 @@ from libcoveweb2.process.common_tasks.task_with_state import TaskWithState
 from libcoveweb2.utils import get_file_type_for_flatten_tool
 from libcoveweb2.utils import group_data_list_by
 
+import logging
+logger = logging.getLogger(__name__)
 
 class Sample(ProcessDataTask):
     def is_processing_applicable(self) -> bool:
@@ -51,6 +53,7 @@ class SetOrTestSuppliedDataFormat(ProcessDataTask):
     def _add_extention(self, supplied_data_file):
         input_filename = supplied_data_file.upload_dir_and_filename()
         filename = input_filename.split("/")[-1]
+        logger.debug(f"source_method: {supplied_data_file.source_method}, filename: {filename}")
         if supplied_data_file.source_method == "url":
             if "." not in filename:
                 content_type = magic.from_file(input_filename, mime=True)
@@ -65,8 +68,6 @@ class SetOrTestSuppliedDataFormat(ProcessDataTask):
                     os.symlink(input_filename, file_renamed)
                     supplied_data_file.filename = file_renamed.split("/")[-1]
                     supplied_data_file.save()
-        else:
-            raise Exception(f"source_method: {supplied_data_file.source_method}")
 
     def process(self, process_data: dict) -> dict:
         if self.supplied_data.format == "unknown":
