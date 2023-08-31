@@ -8,6 +8,7 @@ from typing import List
 
 import json
 import os
+import magic
 
 import flattentool
 from sentry_sdk import capture_exception
@@ -47,12 +48,32 @@ class SetOrTestSuppliedDataFormat(ProcessDataTask):
     def is_processing_needed(self) -> bool:
         return self.supplied_data.format == "unknown"
 
+    def _add_extention(self, supplied_data_file):
+        input_filename = supplied_data_file.upload_dir_and_filename()
+        filename = input_filename.split("/")[-1]
+        if self.supplied_data.source_method == "url":
+            if "." not in filename:
+                content_type = magic.from_file(input_filename, mime=True)
+                file_renamed = False
+                if content_type == 'application/json':
+                    file_renamed = f"{input_filename}.json"
+                elif content_type == 'text/csv':
+                    file_renamed = f"{input_filename}.csv"
+                elif content_type == 'application/octet-stream':
+                    file_renamed = f"{input_filename}.xlsx"
+                if file_renamed:
+                    os.symlink(input_filename, file_renamed)
+                    supplied_data_file.filename = file_renamed.split("/")[-1]
+                    supplied_data_file.save()
+
     def process(self, process_data: dict) -> dict:
         if self.supplied_data.format == "unknown":
             # Look up what data format is, and set it
             supplied_data_files = SuppliedDataFile.objects.filter(
                 supplied_data=self.supplied_data
             )
+            for supplied_data_file in supplied_data_files:
+                self._add_extention(supplied_data_file)
             all_file_types = [get_file_type_for_flatten_tool(i) for i in supplied_data_files]
             file_types_reduced = list(set([i for i in all_file_types if i]))
             if len(file_types_reduced) == 1:
@@ -134,15 +155,15 @@ class ConvertSpreadsheetIntoJSON(ProcessDataTask):
             f.write(json.dumps(json_data))
             f.truncate()
 
-    def _fix_filename(self, supplied_data_json_file):
-        input_filename = supplied_data_json_file.upload_dir_and_filename()
-        filename = input_filename.split("/")[-1]
-        if self.supplied_data.source_method == "url":
-            if "." not in filename:
-                file_renamed = f"{input_filename}.xlsx"
-                os.symlink(input_filename, file_renamed)
-                return file_renamed
-        return input_filename
+#    def _fix_filename(self, supplied_data_json_file):
+#        input_filename = supplied_data_json_file.upload_dir_and_filename()
+#        filename = input_filename.split("/")[-1]
+#        if self.supplied_data.source_method == "url":
+#            if "." not in filename:
+#                file_renamed = f"{input_filename}.xlsx"
+#                os.symlink(input_filename, file_renamed)
+#                return file_renamed
+#        return input_filename
 
     def process(self, process_data: dict) -> dict:
         if self.supplied_data.format != "spreadsheet":
@@ -161,7 +182,8 @@ class ConvertSpreadsheetIntoJSON(ProcessDataTask):
             raise Exception("Can't find Spreadsheet original data!")
 
         supplied_data_json_file = supplied_data_json_files.first()
-        input_filename = self._fix_filename(supplied_data_json_file)
+#        input_filename = self._fix_filename(supplied_data_json_file)
+        input_filename = supplied_data_json_file.upload_dir_and_filename()
 
         output_dir = os.path.join(
             self.supplied_data.data_dir(), CONVERT_SPREADSHEET_INTO_JSON_DIR_NAME
