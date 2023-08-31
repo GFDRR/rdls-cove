@@ -7,7 +7,7 @@ import libcoverdls.data_reader
 from typing import List
 
 import json
-import os.path
+import os
 
 import flattentool
 from sentry_sdk import capture_exception
