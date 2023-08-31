@@ -51,7 +51,7 @@ class SetOrTestSuppliedDataFormat(ProcessDataTask):
     def _add_extention(self, supplied_data_file):
         input_filename = supplied_data_file.upload_dir_and_filename()
         filename = input_filename.split("/")[-1]
-        if self.supplied_data.source_method == "url":
+        if supplied_data_file.source_method == "url":
             if "." not in filename:
                 content_type = magic.from_file(input_filename, mime=True)
                 file_renamed = False
