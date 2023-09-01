@@ -144,7 +144,8 @@
                 </div>
                 <div id="validationTable" class="collapse in panel-body">
                   {% blocktrans %}Some or all of your data is missing fields which are required by the RDLS schema.{% endblocktrans %}
-                  {% include "cove_rdls/validation_table.html" %}
+                  {# include "cove_rdls/validation_table.html" #}
+                  {{ validation_errors }}
                 </div>
               </div>
     </div>
