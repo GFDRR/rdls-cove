@@ -1,6 +1,7 @@
 {
   "datasets": [
     {
+      "id": "1",
       "title": "",
       "risk_data_type": ["wrong_code"],
       "publisher": {
@@ -19,7 +20,6 @@
         ],
         "countries": "example"
       },
-      "license": "commercial",
       "contact_point": {
         "name": "Example contact point",
         "email": "example.com"
