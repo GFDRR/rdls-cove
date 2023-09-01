@@ -4,10 +4,10 @@ from collections import defaultdict
 
 def group_validation_errors(validation_errors):
     validation_errors_grouped = defaultdict(list)
-    for error_json, values in validation_errors:
-        error = json.loads(error_json)
-        if error["validator"] == "required":
-            validation_errors_grouped["required"].append((error_json, values))
+    for key in validation_errors:
+        vtype = validation_errors[key][0]["validator"]
+        if vtype == "required":
+            validation_errors_grouped["required"].append(validation_errors[key])
         elif error["validator"] in [
             "format",
             "pattern",
@@ -19,7 +19,7 @@ def group_validation_errors(validation_errors):
             "integer",
             "array",
         ]:
-            validation_errors_grouped["format"].append((error_json, values))
+            validation_errors_grouped["format"].append(validation_errors[key])
         else:
-            validation_errors_grouped["other"].append((error_json, values))
+            validation_errors_grouped["other"].append(validation_errors[key])
     return validation_errors_grouped
