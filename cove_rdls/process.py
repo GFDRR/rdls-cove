@@ -212,7 +212,9 @@ class ConvertSpreadsheetIntoJSON(ProcessDataTask):
 
         flattentool.unflatten(input_filename, **unflatten_kwargs)
 
-        #self._clean_and_fix_json()
+        raise Exception(f"input_filename: {input_filename}, unflatten_kwargs: {unflatten_kwargs}")
+
+#        self._clean_and_fix_json()
 
         return process_data
 
