@@ -2,10 +2,11 @@ from libcoverdls.schema import SchemaRDLS
 from libcoverdls.config import LibCoveRDLSConfig
 from libcoverdls.jsonschemavalidate import JSONSchemaValidator
 from libcoverdls.additionalfields import AdditionalFields
+from libcoverdls.lib.utils import group_validation_errors
 import libcoverdls.run_tasks
 import libcoverdls.data_reader
-from typing import List
 
+from typing import List
 import json
 import os
 import magic
@@ -410,6 +411,7 @@ class JsonSchemaValidateTask(TaskWithState):
                 validation_errors, lambda i: i["validator"] + str(i['path_ending']) + i["message"]
             )
         }
+        context["validation_errors_grouped"] = group_validation_errors(context["validation_errors"])
 
         return context, process_data
 
