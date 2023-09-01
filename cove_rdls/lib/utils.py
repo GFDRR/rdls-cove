@@ -8,7 +8,7 @@ def group_validation_errors(validation_errors):
         vtype = validation_errors[key][0]["validator"]
         if vtype == "required":
             validation_errors_grouped["required"].append(validation_errors[key])
-        elif error["validator"] in [
+        elif vtype in [
             "format",
             "pattern",
             "number",
