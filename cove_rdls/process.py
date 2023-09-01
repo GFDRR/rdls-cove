@@ -410,7 +410,7 @@ class JsonSchemaValidateTask(TaskWithState):
             "validation_errors_count": len(validation_errors),
             "validation_errors": group_data_list_by(
 #                validation_errors, lambda i: i["validator"] + str(i['path_ending']) + i["message"]
-                validation_errors, lambda i: i["validator"] + str(i['path_ending']) + i["message"]
+                validation_errors, lambda i: f"{i['validator']}_{i['validator_value']}_{str(i['path_ending'])}"
             )
         }
 #        context["validation_errors_grouped"] = group_validation_errors(context["validation_errors"])
