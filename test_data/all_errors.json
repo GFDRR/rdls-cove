@@ -1,0 +1,99 @@
+{
+  "datasets": [
+    {
+      "title": "",
+      "risk_data_type": "wrong_code",
+      "publisher": {
+        "name": 1,
+        "url": "www.example.com"
+      },
+      "spatial": {
+        "scale": "national",
+        "bbox": [
+          0
+        ],
+        "centroid": [
+          0,
+          0,
+          0
+        ],
+        "countries": "example"
+      },
+      "license": "commercial",
+      "contact_point": {
+        "name": "Example contact point",
+        "email": "example.com"
+      },
+      "creator": {
+      },
+      "attributions": [],
+      "resources": [
+        {
+          "id": "1",
+          "title": "Example resource",
+          "description": "A resource",
+          "format": "geotiff",
+          "url": "http://www.example.com",
+          "spatial_resolution": 0,
+          "authorNames": [
+            "a",
+            "a"
+          ],
+          "temporal": {
+            "start": "11"
+          },
+          "date_published": "1st Jan"
+        }
+      ],
+      "hazard": {
+        "event_sets": [
+          {
+            "id": "1",
+            "hazards": [
+              {
+                "id": "1",
+                "type": "coastal_flood",
+                "processes": [
+                  "coastal_flood"
+                ]
+              }
+            ],
+            "analysis_type": "deterministic",
+            "events": [
+              {
+                "id": "1",
+                "calculation_method": "inferred",
+                "hazard": {
+                  "id": "1",
+                  "type": "coastal_flood",
+                  "processes": [
+                    "coastal_flood"
+                  ],
+                  "occurrence": {
+                    "probabalistic": {
+                      "return_period": -1,
+                      "probability": {
+                        "value": 10,
+                        "span": "a"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "links": [
+        {
+          "href": "https://raw.githubusercontent.com/GFDRR/rdl-standard/0__2__0/schema/rdls_schema.json",
+          "rel": "wrongrel"
+        },
+        {
+          "href": "https://raw.githubusercontent.com/GFDRR/rdl-standard/0__2__0/schema/rdls_schema.json",
+          "rel": "describedby"
+        }
+      ]
+    }
+  ]
+}
