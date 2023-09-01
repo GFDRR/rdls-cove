@@ -124,13 +124,32 @@
                   </h4>
                 </div>
                 <div id="validationTable" class="collapse in panel-body">
-                    <p>{% trans 'There were no validation errors!' %}</p>
+                    <p>{% trans 'There were no validation errors.' %}</p>
                 </div>
               </div>
         {% endif %}
 
     </div>
 
+
+    {% with validation_errors=validation_errors_grouped.required error_prefix='required-' %}
+    {% if validation_errors %}
+    <div class="row">
+              <a name="validation-errors" class="anchor"></a>
+              <div class="panel panel-danger">
+                <div id="validation-panel" class="panel-heading pointer" role="region" aria-expanded="true" aria-controls="validationTable"data-toggle="collapse" data-target="#validationTable">
+                  <h4 class="panel-title">
+                    <span class="glyphicon glyphicon-collapse-up"></span>{% trans 'Structural Errors - Required Fields' %}
+                  </h4>
+                </div>
+                <div id="validationTable" class="collapse in panel-body">
+                  {% blocktrans %}Some or all of your data is missing fields which are required by the RDLS schema.{% endblocktrans %}
+                  {% include "cove_rdls/validation_table.html" %}
+                </div>
+              </div>
+    </div>
+    {% endif %}
+    {% endwith %}
 
 
     <div class="row">
