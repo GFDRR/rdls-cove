@@ -2,9 +2,10 @@ from libcoverdls.schema import SchemaRDLS
 from libcoverdls.config import LibCoveRDLSConfig
 from libcoverdls.jsonschemavalidate import JSONSchemaValidator
 from libcoverdls.additionalfields import AdditionalFields
-from libcoverdls.lib.utils import group_validation_errors
 import libcoverdls.run_tasks
 import libcoverdls.data_reader
+
+from cove_rdls.lib.utils import group_validation_errors
 
 from typing import List
 import json
