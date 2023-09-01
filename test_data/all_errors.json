@@ -2,7 +2,7 @@
   "datasets": [
     {
       "title": "",
-      "risk_data_type": "wrong_code",
+      "risk_data_type": ["wrong_code"],
       "publisher": {
         "name": 1,
         "url": "www.example.com"
@@ -35,7 +35,7 @@
           "format": "geotiff",
           "url": "http://www.example.com",
           "spatial_resolution": 0,
-          "authorNames": [
+          "author_names": [
             "a",
             "a"
           ],
