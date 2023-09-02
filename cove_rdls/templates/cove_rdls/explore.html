@@ -133,12 +133,11 @@
 
 
     {% with validation_errors_group=validation_errors_grouped.required error_prefix='required-' %}
-    <!-- <p>{{ validation_errors_grouped }}</p> -->
     {% if validation_errors_group %}
     <div class="row">
               <a name="validation-errors" class="anchor"></a>
               <div class="panel panel-danger">
-                <div id="validation-panel" class="panel-heading pointer" role="region" aria-expanded="true" aria-controls="validationTable"data-toggle="collapse" data-target="#validationTable">
+                <div id="validation-panel" class="panel-heading pointer" role="region" aria-expanded="true" aria-controls="validationTable" data-toggle="collapse" data-target="#validationTable">
                   <h4 class="panel-title">
                     <span class="glyphicon glyphicon-collapse-up"></span>{% trans 'Structural Errors - Required Fields' %}
                   </h4>
@@ -146,7 +145,45 @@
                 <div id="validationTable" class="collapse in panel-body">
                   {% blocktrans %}Some or all of your data is missing fields which are required by the RDLS schema.{% endblocktrans %}
                   {% include "cove_rdls/validation_table.html" with validation_errors_block=validation_errors_group %}
-                  {{ validation_errors_group }}
+                </div>
+              </div>
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    {% with validation_errors_group=validation_errors_grouped.format error_prefix='format-' %}
+    {% if validation_errors_group %}
+    <div class="row">
+              <a name="validation-errors" class="anchor"></a>
+              <div class="panel panel-danger">
+                <div id="validation-panel" class="panel-heading pointer" role="region" aria-expanded="true" aria-controls="validationTable" data-toggle="collapse" data-target="#validationTable">
+                  <h4 class="panel-title">
+                    <span class="glyphicon glyphicon-collapse-up"></span>{% trans 'Structural Errors - Format' %}
+                  </h4>
+                </div>
+                <div id="validationTable" class="collapse in panel-body">
+                  {% blocktrans %} Some or all of your data includes fields which are incorrectly formatted.{% endblocktrans %}
+                  {% include "cove_rdls/validation_table.html" with validation_errors_block=validation_errors_group %}
+                </div>
+              </div>
+    </div>
+    {% endif %}
+    {% endwith %}
+
+
+    {% with validation_errors_group=validation_errors_grouped.other error_prefix='other-' %}
+    {% if validation_errors_group %}
+    <div class="row">
+              <a name="validation-errors" class="anchor"></a>
+              <div class="panel panel-danger">
+                <div id="validation-panel" class="panel-heading pointer" role="region" aria-expanded="true" aria-controls="validationTable" data-toggle="collapse" data-target="#validationTable">
+                  <h4 class="panel-title">
+                    <span class="glyphicon glyphicon-collapse-up"></span>{% trans 'Structural Errors - Other' %}
+                  </h4>
+                </div>
+                <div id="validationTable" class="collapse in panel-body">
+                  {% blocktrans %} Some or all of your data has validation errors.{% endblocktrans %}
+                  {% include "cove_rdls/validation_table.html" with validation_errors_block=validation_errors_group %}
                 </div>
               </div>
     </div>
