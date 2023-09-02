@@ -133,6 +133,7 @@
 
 
     {% with validation_errors_group=validation_errors_grouped.required error_prefix='required-' %}
+    <!-- <p>{{ validation_errors_group }}</p> -->
     {% if validation_errors_group %}
     <div class="row">
               <a name="validation-errors" class="anchor"></a>
