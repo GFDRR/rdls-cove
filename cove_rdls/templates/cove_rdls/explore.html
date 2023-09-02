@@ -104,19 +104,7 @@
         {% block key_facts %}
         {% endblock %}
 
-        {% if validation_errors %}
-              <a name="validation-errors" class="anchor"></a>
-              <div class="panel panel-danger">
-                <div id="validation-panel" class="panel-heading pointer" role="region" aria-expanded="true" aria-controls="validationTable" data-toggle="collapse" data-target="#validationTable">
-                  <h4 class="panel-title">
-                    <span class="glyphicon glyphicon-collapse-up"></span>{% trans 'Validation Errors' %}
-                  </h4>
-                </div>
-                <div id="validationTable" class="collapse in panel-body">
-                  {% include "cove_rdls/validation_table.html" with validation_errors_block=validation_errors %}
-                </div>
-              </div>
-        {% else %}
+        {% if not validation_errors %}
              <div class="panel panel-success">
                 <div id="validation-panel" class="panel-heading pointer" role="region" aria-expanded="true" aria-controls="validationTable" data-toggle="collapse" data-target="#validationTable">
                   <h4 class="panel-title">
