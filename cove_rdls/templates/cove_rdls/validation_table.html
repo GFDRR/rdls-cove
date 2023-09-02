@@ -93,13 +93,13 @@
   <td>
     <ul class="list-unstyled">
       {% for error in errors|slice:":3" %}
-        {# if error.instance|get_variable_type != "dict" #}
+        {% if error.instance|get_variable_type != "dict" or error.instance|length == 0 %}
             {% if error.instance|get_variable_type == "str" %}
             <li> "{{error.instance}}" </li>
             {% else %}
             <li> {{error.instance}} </li>
             {% endif %}
-        {# endif #}
+        {% endif %}
       {% endfor %}
     </ul>
   </td>
