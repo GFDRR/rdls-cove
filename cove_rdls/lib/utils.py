@@ -2,11 +2,12 @@ from collections import defaultdict
 
 
 def group_validation_errors(validation_errors):
-    validation_errors_grouped = defaultdict(list)
+    validation_errors_grouped = defaultdict({})
     for key in validation_errors:
         vtype = validation_errors[key][0]["validator"]
         if vtype == "required":
-            validation_errors_grouped["required"].append({key: validation_errors[key]})
+#            validation_errors_grouped["required"].append({key: validation_errors[key]})
+            validation_errors_grouped["required"][key] = validation_errors[key]
         elif vtype in [
             "format",
             "pattern",
@@ -17,8 +18,11 @@ def group_validation_errors(validation_errors):
             "object",
             "integer",
             "array",
+            "type",
         ]:
-            validation_errors_grouped["format"].extend({key: validation_errors[key]})
+#            validation_errors_grouped["format"].extend({key: validation_errors[key]})
+            validation_errors_grouped["format"][key] = validation_errors[key]
         else:
-            validation_errors_grouped["other"].append({key: validation_errors[key]})
+#            validation_errors_grouped["other"].append({key: validation_errors[key]})
+            validation_errors_grouped["other"][key] = validation_errors[key]
     return validation_errors_grouped
