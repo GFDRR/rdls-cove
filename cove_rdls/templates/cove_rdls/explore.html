@@ -113,7 +113,7 @@
                   </h4>
                 </div>
                 <div id="validationTable" class="collapse in panel-body">
-                  {% include "cove_rdls/validation_table.html" validation_errors_block=validation_errors %}
+                  {% include "cove_rdls/validation_table.html" with validation_errors_block=validation_errors %}
                 </div>
               </div>
         {% else %}
@@ -144,7 +144,7 @@
                 </div>
                 <div id="validationTable" class="collapse in panel-body">
                   {% blocktrans %}Some or all of your data is missing fields which are required by the RDLS schema.{% endblocktrans %}
-                  {% include "cove_rdls/validation_table.html" validation_errors_block=validation_errors_group %}
+                  {% include "cove_rdls/validation_table.html" with validation_errors_block=validation_errors_group %}
                   {{ validation_errors_group }}
                 </div>
               </div>
