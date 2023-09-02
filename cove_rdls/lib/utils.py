@@ -2,7 +2,7 @@ from collections import defaultdict
 
 
 def group_validation_errors(validation_errors):
-    validation_errors_grouped = defaultdict({})
+    validation_errors_grouped = defaultdict(dict)
     for key in validation_errors:
         vtype = validation_errors[key][0]["validator"]
         if vtype == "required":
