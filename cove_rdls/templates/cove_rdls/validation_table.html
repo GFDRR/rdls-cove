@@ -116,7 +116,7 @@
   <td>
     <ul class="list-unstyled">
       {% for error in errors|slice:":3" %}
-        <li> <b>{% trans "Sheet" %}:</b> {{ error.location.sheet }} <b>{% trans "Row" %}:</b> {{ error.location.row_number }} {% if error.location.header %} <b>{% trans "Column" %}:</b> {{ error.location.header }} {% endif %} </li>
+        <li> {% if error.location.sheet %} <b>{% trans "Sheet" %}:</b> {{ error.location.sheet }} {% endif %} {% if error.location.row_number %} <b>{% trans "Row" %}:</b> {{ error.location.row_number }} {% endif %} {% if error.location.header %} <b>{% trans "Column" %}:</b> {{ error.location.header }} {% endif %} </li>
       {% endfor %}
     </ul>
   </td>
