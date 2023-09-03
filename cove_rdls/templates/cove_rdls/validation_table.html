@@ -61,7 +61,7 @@
       {% elif errors.0.validator == "type" and errors.0.validator_value == "number" %}
         <strong><code>{{ errors.0.path_ending }}</code> is not a number. Number values must contain only digits (<code>0-9</code>) and, optionally, the dot character (<code>.</code>). Numbers must not be enclosed in quote characters, e.g. <code>1</code> is an number, but <code>"1"</code> is a string.</strong>
       {% elif errors.0.validator == "type" and errors.0.validator_value == "array" %}
-        <strong><code>{{ errors.0.path_ending }}</code> is not an array. Array values must be enclosed in square brackets (<code>[</code> and <code>]</code>.</strong>
+        <strong><code>{{ errors.0.path_ending }}</code> is not an array. Array values must be enclosed in square brackets (<code>[</code> and <code>])</code>.</strong>
       {% elif errors.0.validator == "type" and errors.0.validator_value == "string" %}
         <strong><code>{{ errors.0.path_ending }}</code> is not a string. String values must begin and end with the quote character (<code>"</code>) and any quotes within the value must be escaped with a backslash (<code>\</code>).</strong>
       {% elif errors.0.validator == "type" and errors.0.validator_value == "boolean" %}
