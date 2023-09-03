@@ -25,7 +25,7 @@
       {% elif errors.0.validator == "exclusiveMinimum" %}
 	<strong><code>{{ errors.0.path_ending}}</code> is less than or equal to the mininum value of {{ errors.0.validator_value }}.</strong>
       {% elif errors.0.validator == "required" %}
-        <strong><code>Required field {{ errors.0.extra.required_key_which_is_missing }}</code> is missing. Your data must contain the required fields specified in the schema. Check that the field is present and not mispelled.</strong>
+        <strong>Required field <code>{{ errors.0.extra.required_key_which_is_missing }}</code> is missing. Your data must contain the required fields specified in the schema. Check that the field is present and not mispelled.</strong>
       {% elif errors.0.validator == "maximum" %}
 	<strong><code>{{ errors.0.path_ending}}</code> is greater than the maximum value of {{ errors.0.validator_value }}.</strong>
       {% elif errors.0.validator == "minimum" %}
