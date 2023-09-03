@@ -20,7 +20,9 @@
 <tr>
   <td>
     <p>
-      {% if errors.0.validator == "const" %}
+      {% if errors.0.validator == "const" and errors.0.validator_value == "describedby" %}
+        <strong><code>{{ errors.0.path_ending }}</code> does not match the regex <code>{{ errors.0.validator_value }}</code>. With the exception of the first item in the links array, the value of <code>{{ errors.0.path_ending }}</code> must not be 'describedby'.</strong>
+      {% elif errors.0.validator == "const" %}
         <strong><code>{{ errors.0.path_ending}}</code> does not match constant specified in schema. The value must be {{ errors.0.validator_value }}.</strong>
       {% elif errors.0.validator == "exclusiveMinimum" %}
 	<strong><code>{{ errors.0.path_ending}}</code> is less than or equal to the mininum value of {{ errors.0.validator_value }}.</strong>
