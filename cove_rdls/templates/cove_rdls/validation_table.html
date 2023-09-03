@@ -78,6 +78,10 @@
         {% if errors.0.path|last == "start" or errors.0.path|last == "end" %}
 	  <strong><code>{{ errors.0.path_ending }}</code> is incorrectly formatted. It must be formatted as a date (<code>YYYY-MM-DD</code>), a year-month (<code>YYYY-MM</code>) or a year (<code>YYYY</code>).</strong>
         {% endif %}
+      {% elif errors.0.validator == "oneOf" and "schema" in errors.0.message and errors.0.path|length > 2 and errors.0.path|slice:"-2:-1" == "temporal" %}
+        {% if errors.0.path|last == "start" or errors.0.path|last == "end" %}
+          <strong><code>{{ errors.0.path_ending }}</code> is incorrectly formatted. It must be formatted as a date (<code>YYYY-MM-DD</code>), a year-month (<code>YYYY-MM</code>) or a year (<code>YYYY</code>).</strong>
+        {% endif %}
       {% elif errors.0.validator == "anyOf" %}
         <strong>{{ errors.0.message  }}</strong>
       {% else %}
