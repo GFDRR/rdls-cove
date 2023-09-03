@@ -1,5 +1,5 @@
 {% load i18n %}
-{% load cove_tags %}
+{% load cove_tags validator_table %}
 
 <!-- <p>{{ validation_errors_block }}</p> -->
 
@@ -39,7 +39,7 @@
       {% elif errors.0.validator == "uniqueItems" %}
 	<strong><code>{{ errors.0.path_ending}}</code> has non-unique items. The items in <code>{{ errors.0.path_ending}}</code> must be unique.</strong>
       {% elif errors.0.validator == "enum" %}
-        {% with errors.0.path_ending|split:"/"|first as value %}
+        {% with errors.0.path_ending|property_name as value %}
 	<strong><code>{{ value }}</code> does not match any code. <code>{{ value }}</code> must match a code from the codelist specified in the schema.</strong>
         {% endwith %}
       {% elif errors.0.validator == "pattern" and errors.0.path|length > 2 and errors.0.path|slice:"-2:-1" == "Link" and errors.0.path|last == "rel" %}
