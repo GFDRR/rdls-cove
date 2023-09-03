@@ -50,6 +50,8 @@
         <strong><code>{{ errors.0.path_ending }}</code> is not an IRI. IRI values must be formatted according to <a href="https://datatracker.ietf.org/doc/html/rfc3987">RFC3987</a>. Check that webpage URLs begin with 'http' or 'https', e.g. http://www.example.com.</strong>
       {% elif errors.0.validator == "format" and errors.0.validator_value == "iri" %}
 	<strong><code>{{ errors.0.path_ending }}</code> is not an IRI. IRI values must be formatted according to <a href="https://datatracker.ietf.org/doc/html/rfc3987">RFC3987</a>.</strong>
+      {% elif errors.0.validator == "format" and errors.0.validator_value == "email" %}
+        <strong><code>{{ errors.0.path_ending }}</code> is not an email address.</strong>
       {% elif errors.0.validator == "format" and errors.0.validator_value == "date-time" %}
         <strong>Date is not in the correct format. The correct format is YYYY-MM-DDT00:00:00Z.</strong>
       {% elif errors.0.validator == "format" and errors.0.validator_value == "uri" %}
