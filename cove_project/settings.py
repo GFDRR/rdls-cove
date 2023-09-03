@@ -149,8 +149,8 @@ LOGGING = settings.LOGGING
 COVE_CONFIG = {
     'app_name': 'cove_rdls',
     'app_base_template': 'cove_rdls/base.html',
-    'app_verbose_name': 'RDLS Metadata Toolkit',
-    'app_strapline': 'Review your RDLS data.',
+    'app_verbose_name': 'RDLS Convertor',
+    'app_strapline': 'Convert and validate RDLS metdata.',
     'root_list_path': 'there-is-no-root-list-path',
     'root_id': 'statementID',
     'id_name': 'statementID',
