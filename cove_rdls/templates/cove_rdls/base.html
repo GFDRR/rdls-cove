@@ -103,8 +103,8 @@
         <h1 class="heading-in-panel"> <small> {% blocktrans %}Using the RDLS Convertor{%endblocktrans%}</small> </h1>
         <p>{% blocktrans %}Use one of the links below to check that your data complies with the <a href="#introduction">Risk Data Library Standard (RDLS)</a>.{%endblocktrans%}</p>
         <ul>
-            <li>{% blocktrans %}<b>Upload</b> a RDLS metadata file;{%endblocktrans%}</li>
-            <li>{% blocktrans %}<b>Link</b> to RDLS metadata on the web using a URL; or{%endblocktrans%}</li>
+            <li>{% blocktrans %}<b>Upload</b> a RDLS metadata file (JSON or XLSX);{%endblocktrans%}</li>
+            <li>{% blocktrans %}<b>Link</b> to RDLS metadata on the web using a URL (JSON or XLSX); or{%endblocktrans%}</li>
             <li>{% blocktrans %}<b>Paste</b> in your RDLS JSON metadata{%endblocktrans%}</li>
         </ul>
 
@@ -116,17 +116,6 @@
             <li>{% blocktrans %}Multi-table data package - Excel (.xlsx) (UTF-8, Windows-1252 and ISO-8859-1 encodings supported){%endblocktrans%}</li>
         </ul>
 
-        <p><strong>Large datasets</strong></p>
-        <p>
-          If your data file is larger than 10MB, this analysis may take some time. You can process a subset of your submitted data using <em>Sample mode</em> (see below). 
-          Alternatively you can install our <a href="https://pypi.org/project/libcoverdls/">data review library</a> to analyse files via your command line interface.
-        </p>
-        <p>
-          <em>Sample mode</em> validates and analyses the data from a subset of the submitted RDLS datasets. 
-          Datasets of all four types (hazard, exposure, vulnerability and loss) are represented in the sample. 
-          Sampling is not random: if an unchanging data is run through the data review tool multiple times, the same datasets will form the sample each time. 
-          Conformance tests that require processing of the complete data are not run in <em>Sample mode</em>.
-        </p>
         <p><strong>Feedback and support</strong></p>
         <p>{% blocktrans %}Submit feedback, issues or bugs via <a href="https://github.com/GFDRR/rdls-cove/">the rdls-cove repository</a>. For further information or support email <a href="mailto:contact@riskdatalibrary.org">contact@riskdatalibrary.org</a>.{%endblocktrans%}</p>
 
