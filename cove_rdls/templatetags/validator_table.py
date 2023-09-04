@@ -11,9 +11,9 @@ def property_name(value):
 
 
 @register.filter
-def start_end(value):
+def temporal_start_end(value):
     if isinstance(value, list):
-        if value[-1] == "start" or value[-1] == "end":
+        if len(value) > 1 and "temporal" in value and (value[-1] == "start" or value[-1] == "end"):
             return True
     return False
 
