@@ -31,7 +31,7 @@
       </div><!--row-->
       <div class="row">
         <div class="col-xs-7">
-          {% block h1 %}<h1 class="application-name"><a href="{% url 'index' %}">{% blocktrans %} Convert and validate RDLS metdata{% endblocktrans %} </a></h1> <h2 class="beta"><small>beta</small></h2>{% endblock %}
+          {% block h1 %}<h1 class="application-name"><a href="{% url 'index' %}">{% blocktrans %} Convert and validate RDLS metadata{% endblocktrans %} </a></h1>{% endblock %}
         </div><!--col-md-8-->
         <div class="col-xs-5">
           <a href="https://rdl-standard.readthedocs.io/en/latest/"><h3 class="docs-link pull-right">{% blocktrans %} RDLS Documentation {% endblocktrans %}</h3></a>
@@ -59,7 +59,7 @@
 {% block link %}
 <li><a href="https://rdl-standard.readthedocs.io/en/latest/">{% trans "Risk Data Library Standard" %}</a></li>
 <li><a href="https://www.gfdrr.org/en">{% trans "Global Facility for Disaster Reduction and Recovery" %}</a></li>
-<li><a href="https://www.gfdrr.org/en"><img src="https://riskdatalibrary.org/uploads/2021/02/26/gfdrr-logo.png" style="background-color: #0b3860; width: max-content;" alt="Logo"/></a></li>
+<li><a href="https://www.gfdrr.org/en"><img src="https://riskdatalibrary.org/uploads/2021/02/26/gfdrr-logo.png" style="background-color: #0b3860; max-width: 100%; margin: 25px 0 25px 0;" alt="Logo"/></a></li>
 {% endblock %}
 
 {% block bottomcontent1 %}
