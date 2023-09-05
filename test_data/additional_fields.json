@@ -1,0 +1,61 @@
+{
+  "datasets": [
+    {
+      "id": "1",
+      "title": "Example dataset",
+      "risk_data_type": ["hazard"],
+      "publisher": {
+        "name": "Example publisher",
+        "url": "https://www.example.com"
+      },
+      "spatial": {
+        "scale": "national"
+      },
+      "license": "commercial",
+      "contact_point": {
+        "name": "Example contact point",
+        "email": "mail@example.com"
+      },
+      "creator": {
+        "name": "Example creator",
+        "email": "mail@example.com"
+      },
+      "resourcesx": [
+        {
+          "id": "1",
+          "title": "Example resource",
+          "description": "A resource",
+          "format": "geotiff",
+          "access_url": "http://www.example.com"
+        },
+        {
+          "id": "1",
+          "title": "Example resource",
+          "description": "A resource",
+          "format": "geotiff",
+          "access_url": "http://www.example.com"
+        },
+        {
+          "id": "1",
+          "title": "Example resource",
+          "description": "A resource",
+          "format": "geotiff",
+          "access_url": "http://www.example.com"
+        },
+        {
+          "id": "1",
+          "title": "Example resource",
+          "description": "A resource",
+          "format": "geotiff",
+          "access_url": "http://www.example.com"
+        }
+      ],
+      "links": [
+        {
+          "href": "https://raw.githubusercontent.com/GFDRR/rdl-standard/0__2__0/schema/rdls_schema.json",
+          "rel": "describedby"
+        }
+      ]
+    }
+  ]
+}
