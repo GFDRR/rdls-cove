@@ -57,8 +57,9 @@
 {% endblock %}
 
 {% block link %}
-<li><a href="https://www.gfdrr.org/en">{% trans "Global Facility for Disaster Reduction and Recovery" %}</a></li>
 <li><a href="https://rdl-standard.readthedocs.io/en/latest/">{% trans "Risk Data Library Standard" %}</a></li>
+<li><a href="https://www.gfdrr.org/en">{% trans "Global Facility for Disaster Reduction and Recovery" %}</a></li>
+<li><a href="https://www.gfdrr.org/en"><img src="https://riskdatalibrary.org/uploads/2021/02/26/gfdrr-logo.png" alt="Logo"/></a></li>
 {% endblock %}
 
 {% block bottomcontent1 %}
@@ -100,7 +101,7 @@
     <div class="panel panel-default">
       <div class="panel-body">
 
-        <h1 class="heading-in-panel"> <small> {% blocktrans %}Convert and validate RDLS metdata{%endblocktrans%}</small> </h1>
+        <h1 class="heading-in-panel"> <small> {% blocktrans %}Using the RDLS Convertor{%endblocktrans%}</small> </h1>
         <p>{% blocktrans %}Use one of the links below to check that your data complies with the <a href="#introduction">Risk Data Library Standard (RDLS)</a>.{%endblocktrans%}</p>
         <ul>
             <li>{% blocktrans %}<b>Upload</b> a RDLS metadata file (JSON or XLSX);{%endblocktrans%}</li>
