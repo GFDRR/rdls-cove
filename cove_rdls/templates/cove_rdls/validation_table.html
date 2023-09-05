@@ -28,6 +28,8 @@
         <strong><code>{{ errors.0.path_ending}}</code> does not match constant specified in schema. The value must be {{ errors.0.validator_value }}.</strong>
       {% elif errors.0.validator == "exclusiveMinimum" %}
 	<strong><code>{{ errors.0.path_ending}}</code> is less than or equal to the mininum value of {{ errors.0.validator_value }}.</strong>
+      {% elif errors.0.validator == "required" and errors.0.validator_value == "datasets" %}
+        <strong>Required field <code>{{ errors.0.extra.required_key_which_is_missing }}</code> is missing. Check that your metadata is provided in an <a href="https://docs.riskdatalibrary.org/en/dev/reference/package_schema/">RDLS metadata package</a>.</strong>
       {% elif errors.0.validator == "required" %}
         <strong>Required field <code>{{ errors.0.extra.required_key_which_is_missing }}</code> is missing.</strong>
       {% elif errors.0.validator == "maximum" %}
