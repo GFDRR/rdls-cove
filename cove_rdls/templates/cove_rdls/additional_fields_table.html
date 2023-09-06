@@ -26,11 +26,13 @@
                     {{ info.count }}
                 </td>
                 <td>
+                    <ul class="list-unstyled">
                     {% for example in info.examples|slice:":3" %}
                     <li>
                         {{ example }}
                     </li>
                     {% endfor %}
+                    </ul>
                 </td>
                 <td>
                     {% if info.additional_field_descendance %}
