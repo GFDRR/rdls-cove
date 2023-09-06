@@ -7,7 +7,7 @@
     <tr>
         <th class="">{% trans 'Field Name' %}</th>
         <th class="">{% trans 'Field Path' %}</th>
-        <th class="">{% trans 'Usage Count' %}
+        <th class="">{% trans 'Usage Count' %}</th> 
         <th class="">{% trans 'First 3 Values' %}</th>
         <th class="">{% trans 'Child Fields' %}</th>
     </tr>
@@ -60,8 +60,8 @@
                  <tr>
                    <th> {% trans 'Field' %}</th>
                    <th> {% trans 'Path to Field' %}</th>
-                   <th> {% trans 'Usage Count' %}</th>
-                   <th> {% trans 'Examples (first 3)' %}</th>
+                   <!-- <th> {% trans 'Usage Count' %}</th> -->
+                   <th> {% trans 'Value' %}</th>
                  </tr>
                </thead>
                <tbody>
@@ -69,11 +69,14 @@
                  <tr>
                     <td>{{info.field_name}}</td>
                     <td>{{info.path}}</td>
-                    <td>{{info.count}}</td>
-                    <td>
+                    <!-- <td>{{info.count}}</td> -->
+                    <!-- <td>
                       {% for example in info.examples %}
                         {{example}} <br />
                       {% endfor %}
+                    </td> -->
+                    <td>
+                        {{ info.examples|first }}
                     </td>
                  </tr>
                {% endfor %}
