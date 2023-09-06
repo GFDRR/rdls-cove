@@ -1,11 +1,14 @@
 {% load i18n %}
 
+<!-- <p>{{ additional_fields }}</p> -->
+
 <table class="table">
     <thead>
     <tr>
         <th class="">{% trans 'Field Name' %}</th>
-        <th class="">{% trans 'Contents' %}</th>
-        <th class="">{% trans 'Where field occurs' %}</th>
+        <th class="">{% trans 'Usage Count' %}
+        <th class="">{% trans 'First 3 Values' %}</th>
+        <th class="">{% trans 'First 3 Locations' %}</th>
     </tr>
     </thead>
     <tbody>
@@ -15,7 +18,14 @@
                     {{ value.field_name }}
                 </td>
                 <td>
-                    {{ value.examples }}
+                    {{ value.examples|length }}
+                </td>
+                <td>
+                    {% for error in value.examples|slice:":3" %}
+                    <li>
+                        {{ error.path|join:"/" }}
+                    </li>
+                    {% endfor %}
                 </td>
                 <td>
                     {{ value.path }}
