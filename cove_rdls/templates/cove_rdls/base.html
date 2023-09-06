@@ -100,26 +100,39 @@
   <div class="col-xs-12">
     <div class="panel panel-default">
       <div class="panel-body">
+        <h1 class="heading-in-panel"> <small> {% blocktrans %}Convert and validate your RDLS metadata{% endblocktrans %}</small> </h1>
+        <p>{% blocktrans %}Use the form below to submit your RDLS metadata for conversion and validation against the RDLS schema.{% endblocktrans %}</p>
 
-        <h1 class="heading-in-panel"> <small> {% blocktrans %}Using the RDLS Convertor{%endblocktrans%}</small> </h1>
-        <p>{% blocktrans %}Use one of the links below to check that your data complies with the <a href="#introduction">Risk Data Library Standard (RDLS)</a>.{%endblocktrans%}</p>
         <ul>
-            <li>{% blocktrans %}<b>Upload</b> a RDLS metadata file (JSON or XLSX);{%endblocktrans%}</li>
-            <li>{% blocktrans %}<b>Link</b> to RDLS metadata on the web using a URL (JSON or XLSX); or{%endblocktrans%}</li>
-            <li>{% blocktrans %}<b>Paste</b> in your RDLS JSON metadata{%endblocktrans%}</li>
+            <li>{% blocktrans %}<b>Spreadsheet format</b>: a completed <a href="https://github.com/GFDRR/rdls-spreadsheet-template/">RDLS spreadsheet template</a> in XLSX format.{% endblocktrans %}</li>
+            <li>{% blocktrans %}<b>JSON format</b>: A UTF-8 encoded JSON file that conforms to the <a href="https://docs.riskdatalibrary.org/en/dev/reference/package_schema/">RDLS package schema</a>.{% endblocktrans %}</li>
         </ul>
 
-        <p>{% blocktrans %}After submitting your metadata, use the information provided on the Results page to <a href="#introduction">check and review</a> the data’s quality and compliance with RDLS.</p> 
-        <p>You can also submit your data to convert it in to alternative RDLS-compliant formats (i.e. from XLSX to JSON). This can be downloaded under the heading: <b>Download Data</b>.{%endblocktrans%}</p>
+        <p>For more information on how to prepare RDLS metadata, read the <a href="https://docs.riskdatalibrary.org/en/dev/guides/metadata/#prepare-your-metadata">guidance</a>.</p>
 
-        <b>{% blocktrans %}<strong>Accepted RDLS formats{%endblocktrans%}</strong></b>
-        <ul>
-            <li>{% blocktrans %}JSON built to the <a href="#introduction">Risk Data Library Standard</a> (UTF-8 encoding supported){%endblocktrans%}</li>
-            <li>{% blocktrans %}Multi-table data package - Excel (.xlsx) (UTF-8, Windows-1252 and ISO-8859-1 encodings supported){%endblocktrans%}</li>
-        </ul>
+        <p>You can submit metadata in the above formats by uploading it from your local machine, providing a link to a publicly-accessible URL or pasting it from your clipboard (JSON format only).</p>
 
-        <p><strong>Feedback and support</strong></p>
-        <p>{% blocktrans %}Submit feedback, issues or bugs via <a href="https://github.com/GFDRR/rdls-cove/">the rdls-cove repository</a>. For further information or support email <a href="mailto:contact@riskdatalibrary.org">contact@riskdatalibrary.org</a>.{%endblocktrans%}</p>
+        <p>After submitting your metadata, you can download it in alternative formats and get feedback on its quality. The RDLS Convertor stores your metadata for 90 days at a randomly generated URL. You can share the URL with others to support discussion of data quality.</p>
+
+        <p><strong>Support and feedback</strong></p>
+
+        <p>Need help with publishing RDLS metadata? Contact a member of the Risk Data Library team: <a href="mailto:contact@riskdatalibrary.org">contact@riskdatalibrary.org</a></p>
+
+        <p>To submit feedback on the RDLS Convertor or to report a bug, <a href="https://github.com/GFDRR/rdls-cove/issues/new/choose">open a GitHub issue</a>.</p>
+
+        <h1 class="heading-in-panel"> <small> {% blocktrans %}About the Risk Data Library Standard{% endblocktrans %}</small> </h1>
+
+        <p>The <a href="https://docs.riskdatalibrary.org/">Risk Data Library Standard (RDLS)</a> is an open metadata standard for describing risk datasets used in climate and disaster risk assessments.</p>
+
+        <p>The purpose of the RDLS is to enable risk reduction and resilience building by making it easier for risk data publishers to describe their datasets and for risk data users to identify datasets to use in their work.</p>
+
+        <p>For more information about the RDLS, <a href="https://docs.riskdatalibrary.org/">read its documentation</a>.</p>
+
+        <h1 class="heading-in-panel"> <small> {% blocktrans %}Getting feedback on your metadata{% endblocktrans %}</small> </h1>
+
+        <p>The RDLS Convertor validates your metadata against the <a href="https://docs.riskdatalibrary.org/en/dev/reference/schema/">RDLS schema</a> and provides feedback on its structure and format. The convertor reports validation errors including missing required fields and fields with incorrect types or formats. It also reports any additional fields in your metadata that are not specified in the RDLS schema.</p>
+
+        <p>You should use the guidance provided by the RDLS Convertor to fix the issues with your metadata. To support further review, you can download your data in alternative formats.</p>
 
       </div>
     </div>
