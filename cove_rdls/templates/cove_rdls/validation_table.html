@@ -95,7 +95,7 @@
       {% endif %}
     </p>
   </td>
-  <td class="text-center">
+  <td>
     {% if errors|length > 3 %}
       <a data-toggle="modal" data-target=".{{"validation-errors-"|concat:forloop.counter}}">
         {{errors|length}}
