@@ -68,10 +68,11 @@
     <div class="panel panel-default">
       <div class="panel-body">
 
-        <h1 class="heading-in-panel"> <small>{% blocktrans %}About the Risk Data Library Standard{%endblocktrans%}</small> </h1>
-        <p>{% blocktrans %}The Risk Data Library Standard (RDLS) is an open data standard to make it easier to work with disaster and climate risk data. It provides a common description of the data used and produced in risk assessments, including hazard, exposure, vulnerability, and modelled loss, or impact, data.{%endblocktrans%}</p>
-        <p>{% blocktrans %}The RDLS provides a unique way to create, store, exchange and use disaster different risk information together. It is at the core of the Risk Data Library, a suite of open-source tools to work with disaster and climate risk data.{%endblocktrans%}</p>
-        <p>{% blocktrans %}Learn more at the <a href="https://rdl-standard.readthedocs.io/en/latest/">RDLS documentation website</a>.{%endblocktrans%}</p>
+        <h1 class="heading-in-panel"> <small> {% blocktrans %}About the Risk Data Library Standard{% endblocktrans %}</small> </h1>
+        <p>The <a href="https://docs.riskdatalibrary.org/">Risk Data Library Standard (RDLS)</a> is an open metadata standard for describing risk datasets used in climate and disaster risk assessments.</p>
+        <p>The purpose of the RDLS is to enable risk reduction and resilience building by making it easier for risk data publishers to describe their datasets and for risk data users to identify datasets to use in their work.</p>
+        <p>For more information about the RDLS, <a href="https://docs.riskdatalibrary.org/">read its documentation</a>.</p>
+
       </div>
     </div>
   </div>
@@ -79,16 +80,12 @@
     <div class="panel panel-default">
       <div class="panel-body">
 
-        <h1 class="heading-in-panel"> <small>{% blocktrans %}Checking and reviewing your data{%endblocktrans%}</small> </h1>
+        <h1 class="heading-in-panel"> <small> {% blocktrans %}Getting feedback on your metadata{% endblocktrans %}</small> </h1>
 
-        <p>{% blocktrans %}After submitting your data you will be presented with the results of your data review:{%endblocktrans%}</p>
-        <ul>
-            <li>{% blocktrans %}<b>Download data</b>. A chance to save your data in an alternative format.{%endblocktrans%}</li>
-            <li>{% blocktrans %}<b>Validation errors</b>. A list of standard JSON validation errors.{%endblocktrans%}</li>
-            <li>{% blocktrans %}<b>Additional fields</b>. If your data contains unrecognised fields, they will be listed.{%endblocktrans%}</li>
-            <!-- <li>{% blocktrans %}<b>Statistics</b>. A breakdown of the make-up of your data and indicators of its quality.{%endblocktrans%}</li> -->
-        </ul>
-        <p>{% blocktrans %}Amend your data to address errors and problems, or to improve its quality.{%endblocktrans%}</p>
+        <p>The RDLS Convertor validates your metadata against the <a href="https://docs.riskdatalibrary.org/en/dev/reference/schema/">RDLS schema</a> and provides feedback on its structure and format. The convertor reports validation errors including missing required fields and fields with incorrect types or formats. It also reports any additional fields in your metadata that are not specified in the RDLS schema.</p>
+
+        <p>You should use the guidance provided by the RDLS Convertor to fix the issues with your metadata. To support further review, you can download your data in alternative formats.</p>
+
       </div>
     </div>
   </div>
@@ -119,20 +116,6 @@
         <p>Need help with publishing RDLS metadata? Contact a member of the Risk Data Library team: <a href="mailto:contact@riskdatalibrary.org">contact@riskdatalibrary.org</a></p>
 
         <p>To submit feedback on the RDLS Convertor or to report a bug, <a href="https://github.com/GFDRR/rdls-cove/issues/new/choose">open a GitHub issue</a>.</p>
-
-        <h1 class="heading-in-panel"> <small> {% blocktrans %}About the Risk Data Library Standard{% endblocktrans %}</small> </h1>
-
-        <p>The <a href="https://docs.riskdatalibrary.org/">Risk Data Library Standard (RDLS)</a> is an open metadata standard for describing risk datasets used in climate and disaster risk assessments.</p>
-
-        <p>The purpose of the RDLS is to enable risk reduction and resilience building by making it easier for risk data publishers to describe their datasets and for risk data users to identify datasets to use in their work.</p>
-
-        <p>For more information about the RDLS, <a href="https://docs.riskdatalibrary.org/">read its documentation</a>.</p>
-
-        <h1 class="heading-in-panel"> <small> {% blocktrans %}Getting feedback on your metadata{% endblocktrans %}</small> </h1>
-
-        <p>The RDLS Convertor validates your metadata against the <a href="https://docs.riskdatalibrary.org/en/dev/reference/schema/">RDLS schema</a> and provides feedback on its structure and format. The convertor reports validation errors including missing required fields and fields with incorrect types or formats. It also reports any additional fields in your metadata that are not specified in the RDLS schema.</p>
-
-        <p>You should use the guidance provided by the RDLS Convertor to fix the issues with your metadata. To support further review, you can download your data in alternative formats.</p>
 
       </div>
     </div>
