@@ -13,7 +13,7 @@ jobs:
         key: ${{ secrets.DOKKUSD_BRANCH_SSH_PRIVATE_KEY }}
         known_hosts: ${{ vars.DOKKUSD_BRANCH_SSH_KEYSCAN }}
     - name: Setup python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: 3.11
         architecture: x64
