@@ -18,7 +18,7 @@ jobs:
         python-version: 3.11
         architecture: x64
     - run: pip install dokkusd
-    - run: python -m dokkusd.cli destroy --appname ${{ vars.DOKKU_BRANCH_APP_NAME_PREFIX }}-${{ github.event.ref }}
+    - run: python -m dokkusd.cli destroy --appname ${{ vars.DOKKUSD_BRANCH_APP_NAME_PREFIX }}-${{ github.event.ref }}
       env:
         DOKKUSD_REMOTE_HOST: ${{ vars.DOKKUSD_BRANCH_REMOTE_HOST }}
         DOKKUSD_REMOTE_PORT: ${{ vars.DOKKUSD_BRANCH_REMOTE_PORT }}
