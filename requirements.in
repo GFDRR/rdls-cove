@@ -2,8 +2,9 @@ dealer
 sentry-sdk
 Django>3.2,<3.3
 jsonschema
-libcoverdls>=0.1.0
-libcoveweb2>=0.1.0
+git+https://github.com/GFDRR/rdls-lib-cove.git@83d0ac988ef2299768e777a0036e9cde14786db1#egg=libcoverdls
+libcoveweb2>=0.4.0
 gunicorn
 django-bootstrap3
 flattentool
+python-magic

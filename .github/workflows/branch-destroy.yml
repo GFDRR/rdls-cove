@@ -13,9 +13,9 @@ jobs:
         key: ${{ secrets.DOKKUSD_BRANCH_SSH_PRIVATE_KEY }}
         known_hosts: ${{ vars.DOKKUSD_BRANCH_SSH_KEYSCAN }}
     - name: Setup python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
-        python-version: 3.7
+        python-version: 3.11
         architecture: x64
     - run: pip install dokkusd
     - run: python -m dokkusd.cli destroy --appname ${{ vars.DOKKU_BRANCH_APP_NAME_PREFIX }}-${{ github.event.ref }}

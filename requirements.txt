@@ -8,8 +8,6 @@ amqp==5.1.1
     # via kombu
 asgiref==3.7.2
     # via django
-async-timeout==4.0.2
-    # via redis
 attrs==23.1.0
     # via jsonschema
 backports-datetime-fromisoformat==2.0.0
@@ -61,6 +59,8 @@ et-xmlfile==1.1.0
     # via openpyxl
 flattentool==0.23.0
     # via -r requirements.in
+geojson==3.2.0
+    # via flattentool
 gunicorn==20.1.0
     # via -r requirements.in
 idna==3.4
@@ -70,7 +70,9 @@ ijson==3.2.0.post0
     #   flattentool
     #   libcoverdls
 jsonref==1.1.0
-    # via flattentool
+    # via
+    #   flattentool
+    #   libcoverdls
 jsonschema==4.9.1
     # via
     #   -r requirements.in
@@ -79,14 +81,14 @@ kombu==5.2.4
     # via celery
 libcove2==0.1.0
     # via libcoverdls
--e git+https://github.com/GFDRR/rdls-lib-cove.git#egg=libcoverdls
-#libcoverdls==0.1.0
+libcoverdls @ git+https://github.com/GFDRR/rdls-lib-cove.git@83d0ac988ef2299768e777a0036e9cde14786db1
     # via -r requirements.in
--e git+https://github.com/OpenDataServices/lib-cove-web-2.git#egg=libcoveweb2
-#libcoveweb2==0.2.0
+libcoveweb2==0.4.0
     # via -r requirements.in
 lxml==4.9.2
     # via flattentool
+numpy==2.2.5
+    # via shapely
 odfpy==1.4.1
     # via flattentool
 openpyxl==3.1.2
@@ -106,7 +108,7 @@ pyrsistent==0.19.3
 python-dateutil==2.8.2
     # via libcoverdls
 python-magic==0.4.27
-    # via python-magic
+    # via -r requirements.in
 pytz==2023.3
     # via
     #   celery
@@ -129,6 +131,8 @@ sentry-sdk==1.24.0
     # via
     #   -r requirements.in
     #   libcoveweb2
+shapely==2.1.0
+    # via flattentool
 six==1.16.0
     # via
     #   click-repl
